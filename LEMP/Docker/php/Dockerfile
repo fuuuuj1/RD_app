@@ -6,8 +6,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
   # Laravel environment
   DB_CONNECTION=mysql \
   DB_HOST=db \
-  DB_PORT=3306 \
-  DB_DATABASE=larasns \
+  DB_PORT=3307 \
+  DB_DATABASE=rd_data \
   DB_USERNAME=user \
   DB_PASSWORD=password
 
@@ -22,11 +22,11 @@ RUN apt-get update && \
   zlib1g-dev && \
   mkdir /var/run/php-fpm && \
   mkdir /var/log/php && \
-  docker-php-ext-install pdo_mysql zip && \
+  docker-php-ext-install pdo_mysql zip bcmath && \
   apt-get clean
 
 # Laravelをインストールするためにcomposerをインストールする
-RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
+COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 
 # Laravelコマンドを有効にするためにpashを通す
 ENV PATH $PATH:/composer/vendor/bin
@@ -38,12 +38,11 @@ COPY ./php.ini /usr/local/etc/php/php.ini
 # COPY ./php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 
 # Node.jsのインストール
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-  && apt-get install -y nodejs \
-  && npm install -g yarn
+#npmインストール
+COPY --from=node:10.22 /usr/local/bin /usr/local/bin
+COPY --from=node:10.22 /usr/local/lib /usr/local/lib
 
-WORKDIR /work/backend
+WORKDIR /work/backend/laravel
 
 # Laravel,Vue-cliのインストール
-RUN composer global require laravel/installer && \
-  yarn global add @vue/cli
+RUN composer global require laravel/installer
