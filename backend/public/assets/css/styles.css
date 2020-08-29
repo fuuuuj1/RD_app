@@ -1,0 +1,12 @@
+/* 全ページ共通の設定 */
+
+html,
+body {
+    height: 100%;
+}
+
+/* indexの設定 */
+.top-page {
+    background: url(../img/RD_top.jpg) top / cover no-repeat;
+    min-height: 100%;
+}
