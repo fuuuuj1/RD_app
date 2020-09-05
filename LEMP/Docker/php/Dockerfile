@@ -6,7 +6,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
   # Laravel environment
   DB_CONNECTION=mysql \
   DB_HOST=db \
-  DB_PORT=3307 \
+  DB_PORT=3306 \
   DB_DATABASE=rd_data \
   DB_USERNAME=user \
   DB_PASSWORD=password

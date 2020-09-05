@@ -3,6 +3,7 @@
 @section('title', 'TOPページ')
 
 @section('content')
+
  @include('nav')
 
 <div class="top-page">
@@ -12,27 +13,21 @@
                 <div></div>
             </div>
         </div>
-        <div class="row" style="margin: auto -15px">
+    <div class="row" style="margin: auto -15px">
             <div
             class="col-md-6 col-lg-7 offset-lg-0"
             style="
             margin: 0 auto;
             margin-right: auto;
             margin-left: auto;
-            width: 100%;
-          "
-        >
+            width: 100%;">
         <div class="d-lg-flex justify-content-lg-center container"></div>
-        <p
-        class="top-text"
-        style="
-              color: rgb(223, 232, 238);
-              font-size: 25px;
-              margin-top: 30%;
-              margin-left: 5%;
-              line-height: 40px;
-            "
-          >
+        <p class="top-text"
+        style="color: rgb(223, 232, 238);
+               font-size: 25px;
+               margin-top: 30%;
+               margin-left: 5%;
+               line-height: 40px;">
           あなたは自身の被ばく線量を把握していますか？<br />毎月の被ばく線量を把握して、日々の業務を安全に従事するために<br>当サイトをご活用ください
         </p>
         <div
@@ -43,9 +38,7 @@
               margin-right: auto;
               margin-left: auto;
               padding-right: auto;
-              padding-left: auto;
-            "
-          >
+              padding-left: auto;">
           <a
           class="btn btn-light"
           role="button"
@@ -53,11 +46,8 @@
                 margin-right: auto;
                 margin-left: auto;
                 color: #ffffff;
-                background-color: #6caee0;
-              "
-              href="login.html"
-              >ログイン</a
-              >
+                background-color: #6caee0;"
+              href="login.html">ログイン</a>
             </div>
             <div
             class="d-flex d-md-flex d-lg-flex justify-content-md-center justify-content-lg-center top-link"
@@ -66,8 +56,7 @@
               margin-right: auto;
               margin-left: auto;
               width: 100%;
-            "
-          >
+            ">
           <a
           class="btn btn-light d-lg-flex justify-content-lg-center top-btn"
           role="button"
@@ -77,10 +66,9 @@
                 text-align: center;
                 background-color: #6caee0;
                 color: #ffffff;
-              "
-              href="register.html"
-              >登録</a
-              >
+                "
+              href="{{route('register')}}"
+              >ユーザー登録</a>
             </div>
         </div>
         <div class="col">

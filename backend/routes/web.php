@@ -10,5 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', 'RdController@index');
+// Route::post('/logout', 'LoginController@logout');
