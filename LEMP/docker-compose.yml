@@ -20,11 +20,10 @@ services:
       - db
 
   # dbコンテナはMySQLで構成する depends onによりdb→app→webの順にコンテナを立ち上げていく
-  # Git-hubに共有するときは、DBname,user name, passwordはblankにしてからGitに共有すること
   db:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: laravel
+      MYSQL_DATABASE: rd_data
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: root
@@ -32,6 +31,7 @@ services:
     ports:
       - 4306:3306
     volumes:
+      - ./Docker/db/conf:/etc/db/conf.d:rw
       - mysql-data:/var/lib/mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
 

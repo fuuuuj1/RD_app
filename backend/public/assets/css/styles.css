@@ -10,3 +10,8 @@ body {
     background: url(../img/RD_top.jpg) top / cover no-repeat;
     min-height: 100%;
 }
+
+/* 会員登録ページの設定 */
+.register-content {
+    background-color: #dddddd;
+}
