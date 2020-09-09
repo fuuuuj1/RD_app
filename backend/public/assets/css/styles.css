@@ -15,3 +15,14 @@ body {
 .register-content {
     background-color: #dddddd;
 }
+
+/* ログインページの設定 */
+.login-content {
+    background-color: #dddddd;
+    height: 100%;
+}
+/* パスワード再設定画面の設定 */
+.email-reset-content {
+    background-color: #dddddd;
+    height: 100%;
+}
