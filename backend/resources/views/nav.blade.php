@@ -20,7 +20,7 @@
 
         @guest
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="login.html">ログイン</a>
+                <a class="nav-link" href="{{route('login')}}">ログイン</a>
                 </li>
         @endguest
 
@@ -32,7 +32,7 @@
 
         @auth
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="{{route('register')}}">マイページ</a>
+                    <a class="nav-link" href="#">マイページ</a>
                 </li>
         @endauth
 
@@ -54,7 +54,7 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="contact.html">コンタクト</a>
+                <a class="nav-link" href="#">コンタクト</a>
                 </li>
             </ul>
         </div>
