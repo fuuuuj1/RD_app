@@ -21,8 +21,15 @@ body {
     background-color: #dddddd;
     height: 100%;
 }
+
 /* パスワード再設定画面の設定 */
 .email-reset-content {
+    background-color: #dddddd;
+    height: 100%;
+}
+
+/* 線量の記録画面の設定 */
+.record-content {
     background-color: #dddddd;
     height: 100%;
 }

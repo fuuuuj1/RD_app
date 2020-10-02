@@ -48,9 +48,6 @@
         </form>
         @endauth
 
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#">機能</a>
-                </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation">

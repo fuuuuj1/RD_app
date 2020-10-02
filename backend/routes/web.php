@@ -11,5 +11,6 @@
 |
 */
 Auth::routes();
-Route::get('/', 'RdController@index');
+Route::get('/', 'RdController@index')->name('RD.index');
+Route::resource('/RD', 'RDController')->names(['create' => 'RD.record'])->except(['index']);
 // Route::post('/logout', 'LoginController@logout');
