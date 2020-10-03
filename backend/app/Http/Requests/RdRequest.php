@@ -26,7 +26,7 @@ class RdRequest extends FormRequest
         return [
             'year' => ['required', 'max:4', 'numeric', 'between:1900,2100'],
             'month' => ['required', 'max:2', 'numeric', 'between:1,12'],
-            'position' => ['required'],
+            'position_id' => ['required'],
             'dose_body' => ['nullable', 'numeric'],
             'dose_neck' => ['nullable', 'numeric'],
         ];

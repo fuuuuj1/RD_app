@@ -43,7 +43,7 @@
 
                     <div class="col-sm-4 input-column">
                         <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="position">&nbsp; &nbsp; &nbsp; &nbsp;</button>
+                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="position_id">&nbsp; &nbsp; &nbsp; &nbsp;</button>
 
                             <div class="dropdown-menu" role="menu">
                                 <a class="dropdown-item" role="presentation" href="#">First Item</a>
