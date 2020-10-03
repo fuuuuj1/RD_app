@@ -8,6 +8,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -48,5 +51,21 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PasswordResetNotification($token, new BareMail()));
+    }
+
+    /**
+     * ユーザーの線量記録を取得
+     */
+    public function exposures()
+    {
+        return $this->hasMany('App\Exposure');
+    }
+
+    /**
+     * ユーザーの職業情報を取得
+     */
+    public function job()
+    {
+        return $this->belongsTo('App\Job', 'foreign_key', 'j_id');
     }
 }
