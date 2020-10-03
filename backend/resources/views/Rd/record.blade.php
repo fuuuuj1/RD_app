@@ -7,6 +7,7 @@
 <div class="record-content">
 
     <div class="row register-form">
+    @include('error_message')
 
         <div class="col-md-8 offset-md-2">
 
@@ -17,38 +18,20 @@
                 <div class="form-row form-group">
 
                     <div class="col-sm-4 label-column">
-                        <label class="col-form-label" for="dropdown-input-field">測定した年、月&nbsp;</label>
+                        <label class="col-form-label" for="pawssword-input-field">測定した年、月</label>
                     </div>
 
-                    <div class="col-sm-4 col-lg-3 input-column">
-
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">&nbsp; &nbsp; &nbsp; &nbsp;</button>
-
-                            <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
-                            </div>
-
-                        </div>
-
+                    <div class="col-sm-4 input-column">
+                        <input class="form-control" type="text" placeholder="年" inputmode="numeric" required
+                        name="year">
                     </div>
 
-                    <div class="col-lg-3">
-
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">&nbsp; &nbsp; &nbsp; &nbsp;</button>
-
-                            <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
-                            </div>
-
-                        </div>
-
+                    <div class="col-sm-4 input-column">
+                        <input class="form-control" type="text" placeholder="月" inputmode="numeric" required
+                        name="month">
                     </div>
+
+
 
                 </div>
 
@@ -60,7 +43,7 @@
 
                     <div class="col-sm-4 input-column">
                         <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">&nbsp; &nbsp; &nbsp; &nbsp;</button>
+                            <button class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" name="position">&nbsp; &nbsp; &nbsp; &nbsp;</button>
 
                             <div class="dropdown-menu" role="menu">
                                 <a class="dropdown-item" role="presentation" href="#">First Item</a>
@@ -81,7 +64,7 @@
                     </div>
 
                     <div class="col-sm-6 col-lg-4 input-column">
-                        <input class="form-control" type="text" placeholder="mSv" inputmode="numeric" required>
+                        <input class="form-control" type="text" placeholder="mSv" inputmode="numeric">
                     </div>
 
                 </div>
@@ -93,7 +76,7 @@
                     </div>
 
                     <div class="col-sm-6 col-lg-4 input-column">
-                        <input class="form-control" type="text" placeholder="mSv" disabled>
+                        <input class="form-control" type="text" placeholder="mSv">
                     </div>
 
                 </div>
