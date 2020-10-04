@@ -37,6 +37,12 @@
         @endauth
 
         @auth
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="{{route('RD.record')}}">線量の記録</a>
+                </li>
+        @endauth
+
+        @auth
         <form id="logout-button" method="POST" action="{{route('logout')}}">
         @csrf
             <li class="nav-item" role="presentation">
