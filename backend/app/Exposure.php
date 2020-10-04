@@ -29,4 +29,13 @@ class Exposure extends Model
     {
         return $this->belongsTo('App\Position', 'foreign_key', 'p_id');
     }
+
+    // 入力された値のホワイトリストの定義
+    protected $fillable = [
+        'year',
+        'month',
+        'position_id',
+        'dose_body',
+        'dose_neck',
+    ];
 }

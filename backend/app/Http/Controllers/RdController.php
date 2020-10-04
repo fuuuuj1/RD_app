@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Exposure;
 use Illuminate\Http\Request;
+use App\Http\Requests\RdRequest;
 
 class RdController extends Controller
 {
@@ -32,9 +35,17 @@ class RdController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Exposure $exposure)
     {
-        //
+        // 入力された記録フォームの値を全て代入
+        $exposure->fill($request->all());
+        $exposure->user_id = $request->user()->id;
+
+        // 線量データをテーブルへ記録
+        $exposure->save();
+
+        // リダイレクト先は後ほど記録のサンクスページに変更する チェックボックスの値があればリダイレクト先は再びrecordにする
+        return redirect()->route('RD.index');
     }
 
     /**
