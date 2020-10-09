@@ -9,13 +9,26 @@
     <div class="row register-form">
     @include('error_message')
 
-        <div class="col-md-8 offset-md-2">
+
+    <div class="col-md-8 offset-md-2">
+
 
         <form class="custom-form" action="{{route('RD.store')}}" method="POST">
-                @csrf
+            @csrf
 
-                <h1>線量の記録</h1>
-                <div class="form-row form-group">
+            <h1>線量の記録</h1>
+
+            {{-- 重複入力がされた際にエラーメッセージを表示する --}}
+            @if (session('message'))
+                <div class="card-text text-lest alert alert-danger">
+                    <ul class="mb-0">
+                        <li style="list-style: none">{{ session('message') }}</li>
+                    </ul>
+                </div>
+            @endif
+
+            <div class="form-row form-group">
+
 
                     <div class="col-sm-4 label-column">
                         <label class="col-form-label" for="pawssword-input-field">測定した年、月</label>
@@ -26,9 +39,24 @@
                         name="year">
                     </div>
 
-                    <div class="col-sm-4 col-lg-2 input-column">
-                        <input class="form-control" type="text" placeholder="月" inputmode="numeric" required
-                        name="month">
+                    <div class="col-sm-2 input-column">
+
+                        <select class="custom-select my-1 mr-sm-2 form-control" id="inlineFormCustomSelect" name="month">
+                            <option selected>月</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+
                     </div>
 
 

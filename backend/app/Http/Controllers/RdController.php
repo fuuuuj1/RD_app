@@ -7,6 +7,10 @@ use App\Exposure;
 use Illuminate\Http\Request;
 use App\Http\Requests\RdRequest;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 class RdController extends Controller
 {
     /**
@@ -41,12 +45,33 @@ class RdController extends Controller
         $exposure->fill($request->all());
         $exposure->user_id = $request->user()->id;
 
-        // 線量データをテーブルへ記録
-        $exposure->save();
+        // user_id,year,monthの同一データが既にExposuresテーブルに登録されていた場合は重複エラーとする
+        $check_id = Auth::id();
+        $check_year = $request->year;
+        $check_month = $request->month;
 
-        // リダイレクト先は後ほど記録のサンクスページに変更する チェックボックスの値があればリダイレクト先は再びrecordにする
-        return redirect()->route('RD.index');
+        // Exposuresテーブルにこれらの値は既に登録されていないかをcountで確認する
+        // $check_dose = DB::table('exposures')->where('user_id', $user)->where('year', $check_year)->where('month', $check_month)->count();
+
+        $check_dose = DB::table('exposures')->where([
+            ['user_id', $check_id],
+            ['year', $check_year],
+            ['month', $check_month],
+        ])->count();
+
+        if ($check_dose > 0) {
+            // カウントがされ重複ありと見做されたら直前のフォームに戻る
+            return back()->with('message', '入力した' . $check_year . '年' . $check_month . '月の線量記録は既に登録されています');
+        } else {
+            // 重複カウントがなければ、線量データをテーブルへ記録
+            $exposure->save();
+
+            // リダイレクト先は後ほど記録のサンクスページに変更する チェックボックスの値があればリダイレクト先は再びrecordに
+            return redirect()->route('RD.index');
+        }
     }
+
+
 
     /**
      * Display the specified resource.
@@ -91,5 +116,14 @@ class RdController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * ユーザーページの表示
+     * @return \Illuminate\Http\Response
+     */
+    public function userpage()
+    {
+        return view('Rd.userpage');
     }
 }
