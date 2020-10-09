@@ -25,6 +25,9 @@ RUN apt-get update && \
   docker-php-ext-install pdo_mysql zip bcmath && \
   apt-get clean
 
+RUN pecl install xdebug && \
+  docker-php-ext-enable xdebug
+
 # Laravelをインストールするためにcomposerをインストールする
 COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 

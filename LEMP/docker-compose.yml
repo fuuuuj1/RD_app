@@ -5,6 +5,8 @@ services:
     image: nginx:latest
     ports:
       - "8989:80"
+    tty: true
+    stdin_open: true
     depends_on:
       - app
     volumes:

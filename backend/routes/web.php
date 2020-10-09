@@ -13,4 +13,6 @@
 Auth::routes();
 Route::get('/', 'RdController@index')->name('RD.index');
 Route::resource('/RD', 'RDController')->names(['create' => 'RD.record'])->except(['index'])->middleware('auth');
-// Route::post('/logout', 'LoginController@logout');
+
+// ユーザーページの表示ルートの設定
+Route::get('/userpage', 'RdController@userpage')->name('RD.userpage');
