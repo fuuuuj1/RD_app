@@ -124,6 +124,6 @@ class RdController extends Controller
      */
     public function userpage()
     {
-        //
+        return view('Rd.userpage');
     }
 }
