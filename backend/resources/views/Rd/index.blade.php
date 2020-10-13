@@ -58,7 +58,7 @@
 
           <a class="btn btn-light" role="button"
             style="margin-right: auto; margin-left: auto; color: #ffffff; background-color: #6caee0;"
-            href="#">マイページ</a>
+            href="{{route('RD.userpage')}}">マイページ</a>
 
         </div>
 
