@@ -30,7 +30,7 @@
                 </a>
 
                 <div style="margin-top: 30px;">
-                    <a class="btn btn-link my-page-btn" role="button" style="background-color: #6caee0;color: #ffffff;" href="record.html">記録の編集</a>
+                <a class="btn btn-link my-page-btn" role="button" style="background-color: #6caee0;color:#ffffff;" href="{{route('RD.list')}}">記録の編集</a>
                 </div>
 
             </div>

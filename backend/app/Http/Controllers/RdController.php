@@ -51,8 +51,6 @@ class RdController extends Controller
         $check_month = $request->month;
 
         // Exposuresテーブルにこれらの値は既に登録されていないかをcountで確認する
-        // $check_dose = DB::table('exposures')->where('user_id', $user)->where('year', $check_year)->where('month', $check_month)->count();
-
         $check_dose = DB::table('exposures')->where([
             ['user_id', $check_id],
             ['year', $check_year],
@@ -71,11 +69,8 @@ class RdController extends Controller
         }
     }
 
-
-
     /**
      * Display the specified resource.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -86,11 +81,12 @@ class RdController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * listから線量記録の編集ができるようにする
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -125,5 +121,17 @@ class RdController extends Controller
     public function userpage()
     {
         return view('Rd.userpage');
+    }
+
+    /**
+     * 線量記録をリストとして表示 (グラフから線量記録を編集できたら不要かな？)
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        // ログインしているユーザーの線量記録を表示する ページネーションも実装
+        $id = Auth::id();
+        $exposures = Exposure::where('user_id', $id)->latest()->get();
+        return view('Rd.list', ['exposures' => $exposures]);
     }
 }

@@ -32,7 +32,7 @@
 
         @auth
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#">マイページ</a>
+                    <a class="nav-link" href="{{route('RD.userpage')}}">マイページ</a>
                 </li>
         @endauth
 
