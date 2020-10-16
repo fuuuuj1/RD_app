@@ -18,3 +18,6 @@ Route::resource('/RD', 'RDController')->names(['create' => 'RD.record'])->except
 Route::get('/userpage', 'RdController@userpage')->name('RD.userpage')->middleware('auth');
 // 線量記録をリスト形式で表示する
 Route::get('/list', 'RdController@list')->name('RD.list')->middleware('auth');
+
+// 線量記録をチャートで表示する
+Route::get('chart', 'ChartController@chart')->name('Chart.index')->middleware('auth');
