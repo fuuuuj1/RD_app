@@ -41,7 +41,7 @@
                 </a>
 
                 <div style="margin-top: 30px;">
-                    <a class="btn btn-link my-page-btn" role="button" style="background-color: #6caee0;color: #ffffff;">グラフの表示</a>
+                <a class="btn btn-link my-page-btn" role="button" style="background-color: #6caee0;color: #ffffff;" href="{{route('Chart.index')}}">グラフの表示</a>
                 </div>
 
             </div>
