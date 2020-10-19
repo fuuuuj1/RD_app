@@ -3,5 +3,5 @@
 @section('title', '線量グラフ')
 
 @section('content')
-    <random-chart></random-chart>
+    <exposure-chart></exposure-chart>
 @endsection

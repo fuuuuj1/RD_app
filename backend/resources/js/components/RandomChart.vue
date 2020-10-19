@@ -27,11 +27,11 @@
           labels: [this.getRandomInt(), this.getRandomInt()],
           datasets: [
             {
-              label: 'Data One',
+              label: 'データ1',
               backgroundColor: '#f87979',
               data: [this.getRandomInt(), this.getRandomInt()]
             }, {
-              label: 'Data One',
+              label: 'データ2',
               backgroundColor: '#f87979',
               data: [this.getRandomInt(), this.getRandomInt()]
             }

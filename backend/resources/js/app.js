@@ -8,6 +8,7 @@
 import './bootstrap'
 import Vue from 'vue'
 import RandomChart from './components/RandomChart'
+import ExposureChart from './components/ExposureChart'
 
 window.Vue = require('vue');
 
@@ -24,6 +25,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('random-chart-component', require('./components/RandomChart.vue').default);
+Vue.component('exposure-chart-component', require('./components/ExposureChart.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,5 +37,11 @@ const app = new Vue({
     el: '#app',
     components: {
         RandomChart,
+    }
+});
+const app2 = new Vue({
+    el: '#app2',
+    components: {
+        ExposureChart,
     }
 });
