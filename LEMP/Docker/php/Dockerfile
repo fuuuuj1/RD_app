@@ -46,6 +46,3 @@ COPY --from=node:10.22 /usr/local/bin /usr/local/bin
 COPY --from=node:10.22 /usr/local/lib /usr/local/lib
 
 WORKDIR /work/backend/laravel
-
-# Laravel,Vue-cliのインストール
-RUN composer global require laravel/installer

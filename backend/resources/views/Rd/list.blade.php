@@ -1,4 +1,4 @@
-@extends('new_app_mdb')
+@extends('list_app')
 
 @section('title', '線量記録リスト')
 
@@ -17,6 +17,12 @@
             {{-- Headerで登録している年、月の表示 --}}
             <div class="card-header bg-transparent border-success">
                 {{$exposure->year. "年". $exposure->month. "月"}}
+
+                {{-- 編集用のリンクアイコンと削除用のアイコンを表示する --}}
+                <span class="list-title-icon">
+                    <i class="far fa-edit"></i>
+                    <i class="far fa-trash-alt"></i>
+                </span>
             </div>
 
             {{-- 体部線量と頸部線量の表示 --}}
@@ -35,17 +41,35 @@
                 <h5 class="card-title"><br></h5>
                 @endif
 
-                {{-- 編集用のリンクアイコンと削除用のアイコンを表示する --}}
-                <i class="far fa-edit"></i>
-                <i class="far fa-trash-alt"></i>
+            </div>
+            {{-- card bottomの部分 --}}
+            <div class="card-bottom">
+
+                <button type="button" class="btn m-0 p-1" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-chevron-circle-down"></i>
+                </button>
+                {{-- 後ほど入力されたコメントを表示する コメントなければplaceholderの表示 特記事項を入力とか --}}
+                <span class="list-footer-comment">テストコメント</span>
             </div>
 
-         </div>
+                {{-- アコーディオン部分 --}}
+                <div class="collapse" id="collapseExample">
+                <list-comment></list-comment>
+                </div>
 
+
+        </div>
         @endforeach
 
     </div>
 
+        <div class="paginate">
+            {{ $exposures->links() }}
+        </div>
+
+
     </section>
+
 </div>
 @endsection

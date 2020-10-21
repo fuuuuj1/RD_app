@@ -5,7 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import './bootstrap'
+import Vue from 'vue'
+import RandomChart from './components/RandomChart'
+import ExposureChart from './components/ExposureChart'
+import ListComment from './components/ListComment'
 
 window.Vue = require('vue');
 
@@ -21,6 +25,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('random-chart-component', require('./components/RandomChart.vue').default);
+Vue.component('exposure-chart-component', require('./components/ExposureChart.vue').default);
+Vue.component('list-comment-component', require('./components/ListComment.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +36,20 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        RandomChart,
+    }
+});
+const app2 = new Vue({
+    el: '#app2',
+    components: {
+        ExposureChart,
+    }
+});
+const app_comment = new Vue({
+    el: '#app_comment',
+    components: {
+        ListComment,
+    }
 });
