@@ -131,7 +131,11 @@ class RdController extends Controller
     {
         // ログインしているユーザーの線量記録を表示する ページネーションも実装
         $id = Auth::id();
-        $exposures = Exposure::where('user_id', $id)->latest()->get();
+        $exposures = Exposure::where('user_id', $id)
+        ->orderBy('year', 'desc')
+        ->orderBy('month', 'desc')
+        ->paginate(9);
+
         return view('Rd.list', ['exposures' => $exposures]);
     }
 }

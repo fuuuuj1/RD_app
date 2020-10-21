@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    //ExposureChartを呼び出す
+    //BarChartを呼び出す
     import BarChart from '../Chart/BarChart'
 
     export default {
@@ -21,7 +21,6 @@
     data () {
       return {
         datacollection: null,
-        // loading: false,
       }
     },
     mounted () {

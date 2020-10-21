@@ -1,4 +1,4 @@
-@extends('new_app_mdb')
+@extends('chart_app')
 
 @section('title', '線量グラフ')
 

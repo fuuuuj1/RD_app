@@ -314,6 +314,35 @@ h2 {
     font-size: 15px;
 }
 
+/* list page */
+.list-title-icon i {
+    float: right;
+    margin-left: 1rem;
+}
+.paginate ul {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.list-footer-comment {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 0.5rem;
+}
+.card-bottom {
+    position: relative;
+}
+.card-bottom button {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.5rem;
+}
+.card-bottom button {
+    box-shadow: none;
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+}
 /* -------------------------------------------------------------------------------------------- */
 /*  */
 /* モバイルサイズ 今回のトップ画面では720pxをボーダーとする */
