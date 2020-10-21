@@ -1,6 +1,7 @@
 <template>
   <div class="small">
     <bar-chart :chart-data="datacollection"></bar-chart>
+    <button @click="fillData()">線量データの収集</button>
   </div>
 </template>
 
@@ -20,8 +21,7 @@
     //         },
     data () {
       return {
-        datacollection: null,
-        // loading: false,
+        datacollection: null
       }
     },
     mounted () {
@@ -33,7 +33,7 @@
                 title: {
                 display: true,
                 fontSize: 45,
-                text: '売上統計'
+                text: '線量データ'
                         },
     },
     methods: {
@@ -47,7 +47,7 @@
                     {
                     label: '体部線量',
                     backgroundColor: '#f87979',
-                    //   配列 or jsonで取得したデータを格納
+                    //   配列で取得したデータを格納
                     data: dose_body
                     },
 

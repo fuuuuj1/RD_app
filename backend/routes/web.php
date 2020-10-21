@@ -20,4 +20,4 @@ Route::get('/userpage', 'RdController@userpage')->name('RD.userpage')->middlewar
 Route::get('/list', 'RdController@list')->name('RD.list')->middleware('auth');
 
 // 線量記録をチャートで表示する
-Route::get('chart', 'ChartController@index')->name('Chart.index')->middleware('auth');
+// Route::get('chart', 'ChartController@index')->name('Chart.index')->middleware('auth');

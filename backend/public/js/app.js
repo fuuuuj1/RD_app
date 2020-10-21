@@ -1763,7 +1763,7 @@ __webpack_require__.r(__webpack_exports__);
     title: {
       display: true,
       fontSize: 45,
-      text: '売上統計'
+      text: '線量データ'
     }
   },
   methods: {
