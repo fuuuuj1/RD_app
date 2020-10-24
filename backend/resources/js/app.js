@@ -51,5 +51,11 @@ const app_comment = new Vue({
     el: '#app_comment',
     components: {
         ListComment,
+    },
+    data: {
+        // newCommentは変数 入力された値はこの変数に格納する
+        newComment: '',
+        // 変数を後ほど格納する配列
+        comment: []
     }
 });

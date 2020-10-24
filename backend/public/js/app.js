@@ -1838,9 +1838,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListComment.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -1860,10 +1862,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+// アコーディオンを閉じる
 $(function () {
   $('.collapse-close').click(function () {
     $(".collapse").collapse('hide');
   });
+}); // テキストボックスのラベルの遷移
+
+$(document).ready(function () {
+  $('.comment-textbox').blur(function () {
+    if ($(this).val().length === 0) {
+      $('.comment-label').removeClass("focus");
+    } else {
+      returns;
+    }
+  }).focus(function () {
+    $('.comment-label').addClass("focus");
+  });
+}); // コメント入力を保存
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ListPage',
+  // Laravelからv-bindにより Exposresテーブルからcommentカラムのデータを取得しておく
+  props: ["comment"],
+  data: function data() {
+    return {
+      //postで送信するためのリクエストデータ初期化
+      request: {
+        newComment: ''
+      }
+    };
+  },
+  methods: {
+    // addComment: function(){
+    //     this.comment.push(this.newComment);
+    // },
+    // 入力したコメントを送信する
+    editComment: function editComment() {
+      //リクエストデータに入力値を代入
+      this.request.comment = this.newComment; //axiosでリクエストデータ送信
+
+      axios.post('/users', this.request).then(function (res) {
+        console.log(res.data);
+      });
+    } // コメントをタイトルとして表示するメソッドの作成
+
+  }
 });
 
 /***/ }),
@@ -6358,9 +6406,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
- * Chart.js v2.9.4
+ * Chart.js v2.9.3
  * https://www.chartjs.org
- * (c) 2020 Chart.js Contributors
+ * (c) 2019 Chart.js Contributors
  * Released under the MIT License
  */
 (function (global, factory) {
@@ -8461,10 +8509,6 @@ if (typeof window !== 'undefined') {
 
 var chartjsColor = Color;
 
-function isValidKey(key) {
-	return ['__proto__', 'prototype', 'constructor'].indexOf(key) === -1;
-}
-
 /**
  * @namespace Chart.helpers
  */
@@ -8640,7 +8684,7 @@ var helpers = {
 		}
 
 		if (helpers.isObject(source)) {
-			var target = Object.create(source);
+			var target = {};
 			var keys = Object.keys(source);
 			var klen = keys.length;
 			var k = 0;
@@ -8661,12 +8705,6 @@ var helpers = {
 	 * @private
 	 */
 	_merger: function(key, target, source, options) {
-		if (!isValidKey(key)) {
-			// We want to ensure we do not copy prototypes over
-			// as this can pollute global namespaces
-			return;
-		}
-
 		var tval = target[key];
 		var sval = source[key];
 
@@ -8682,12 +8720,6 @@ var helpers = {
 	 * @private
 	 */
 	_mergerIf: function(key, target, source) {
-		if (!isValidKey(key)) {
-			// We want to ensure we do not copy prototypes over
-			// as this can pollute global namespaces
-			return;
-		}
-
 		var tval = target[key];
 		var sval = source[key];
 
@@ -10186,7 +10218,7 @@ helpers$1.extend(DatasetController.prototype, {
 	 */
 	_configure: function() {
 		var me = this;
-		me._config = helpers$1.merge(Object.create(null), [
+		me._config = helpers$1.merge({}, [
 			me.chart.options.datasets[me._type],
 			me.getDataset(),
 		], {
@@ -13456,8 +13488,7 @@ function updateDims(chartArea, params, layout) {
 		chartArea.h = newHeight;
 
 		// return true if chart area changed in layout's direction
-		var sizes = layout.horizontal ? [newWidth, chartArea.w] : [newHeight, chartArea.h];
-		return sizes[0] !== sizes[1] && (!isNaN(sizes[0]) || !isNaN(sizes[1]));
+		return layout.horizontal ? newWidth !== chartArea.w : newHeight !== chartArea.h;
 	}
 }
 
@@ -13761,7 +13792,7 @@ var platform_basic = {
 	}
 };
 
-var platform_dom = "/*\r\n * DOM element rendering detection\r\n * https://davidwalsh.name/detect-node-insertion\r\n */\r\n@keyframes chartjs-render-animation {\r\n\tfrom { opacity: 0.99; }\r\n\tto { opacity: 1; }\r\n}\r\n\r\n.chartjs-render-monitor {\r\n\tanimation: chartjs-render-animation 0.001s;\r\n}\r\n\r\n/*\r\n * DOM element resizing detection\r\n * https://github.com/marcj/css-element-queries\r\n */\r\n.chartjs-size-monitor,\r\n.chartjs-size-monitor-expand,\r\n.chartjs-size-monitor-shrink {\r\n\tposition: absolute;\r\n\tdirection: ltr;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\tvisibility: hidden;\r\n\tz-index: -1;\r\n}\r\n\r\n.chartjs-size-monitor-expand > div {\r\n\tposition: absolute;\r\n\twidth: 1000000px;\r\n\theight: 1000000px;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n\r\n.chartjs-size-monitor-shrink > div {\r\n\tposition: absolute;\r\n\twidth: 200%;\r\n\theight: 200%;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n";
+var platform_dom = "/*\n * DOM element rendering detection\n * https://davidwalsh.name/detect-node-insertion\n */\n@keyframes chartjs-render-animation {\n\tfrom { opacity: 0.99; }\n\tto { opacity: 1; }\n}\n\n.chartjs-render-monitor {\n\tanimation: chartjs-render-animation 0.001s;\n}\n\n/*\n * DOM element resizing detection\n * https://github.com/marcj/css-element-queries\n */\n.chartjs-size-monitor,\n.chartjs-size-monitor-expand,\n.chartjs-size-monitor-shrink {\n\tposition: absolute;\n\tdirection: ltr;\n\tleft: 0;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\toverflow: hidden;\n\tpointer-events: none;\n\tvisibility: hidden;\n\tz-index: -1;\n}\n\n.chartjs-size-monitor-expand > div {\n\tposition: absolute;\n\twidth: 1000000px;\n\theight: 1000000px;\n\tleft: 0;\n\ttop: 0;\n}\n\n.chartjs-size-monitor-shrink > div {\n\tposition: absolute;\n\twidth: 200%;\n\theight: 200%;\n\tleft: 0;\n\ttop: 0;\n}\n";
 
 var platform_dom$1 = /*#__PURE__*/Object.freeze({
 __proto__: null,
@@ -14469,7 +14500,7 @@ var core_scaleService = {
 	},
 	getScaleDefaults: function(type) {
 		// Return the scale defaults merged with the global settings so that we always use the latest ones
-		return this.defaults.hasOwnProperty(type) ? helpers$1.merge(Object.create(null), [core_defaults.scale, this.defaults[type]]) : {};
+		return this.defaults.hasOwnProperty(type) ? helpers$1.merge({}, [core_defaults.scale, this.defaults[type]]) : {};
 	},
 	updateScaleDefaults: function(type, additions) {
 		var me = this;
@@ -15544,7 +15575,7 @@ core_defaults._set('global', {
  * returns a deep copy of the result, thus doesn't alter inputs.
  */
 function mergeScaleConfig(/* config objects ... */) {
-	return helpers$1.merge(Object.create(null), [].slice.call(arguments), {
+	return helpers$1.merge({}, [].slice.call(arguments), {
 		merger: function(key, target, source, options) {
 			if (key === 'xAxes' || key === 'yAxes') {
 				var slen = source[key].length;
@@ -15584,9 +15615,9 @@ function mergeScaleConfig(/* config objects ... */) {
  * a deep copy of the result, thus doesn't alter inputs.
  */
 function mergeConfig(/* config objects ... */) {
-	return helpers$1.merge(Object.create(null), [].slice.call(arguments), {
+	return helpers$1.merge({}, [].slice.call(arguments), {
 		merger: function(key, target, source, options) {
-			var tval = target[key] || Object.create(null);
+			var tval = target[key] || {};
 			var sval = source[key];
 
 			if (key === 'scales') {
@@ -15603,7 +15634,7 @@ function mergeConfig(/* config objects ... */) {
 }
 
 function initConfig(config) {
-	config = config || Object.create(null);
+	config = config || {};
 
 	// Do NOT use mergeConfig for the data object because this method merges arrays
 	// and so would change references to labels and datasets, preventing data updates.
@@ -17584,8 +17615,6 @@ function computeLabelSizes(ctx, tickFonts, ticks, caches) {
 	var widths = [];
 	var heights = [];
 	var offsets = [];
-	var widestLabelSize = 0;
-	var highestLabelSize = 0;
 	var i, j, jlen, label, tickFont, fontString, cache, lineHeight, width, height, nestedLabel, widest, highest;
 
 	for (i = 0; i < length; ++i) {
@@ -17613,13 +17642,11 @@ function computeLabelSizes(ctx, tickFonts, ticks, caches) {
 		widths.push(width);
 		heights.push(height);
 		offsets.push(lineHeight / 2);
-		widestLabelSize = Math.max(width, widestLabelSize);
-		highestLabelSize = Math.max(height, highestLabelSize);
 	}
 	garbageCollect(caches, length);
 
-	widest = widths.indexOf(widestLabelSize);
-	highest = heights.indexOf(highestLabelSize);
+	widest = widths.indexOf(Math.max.apply(null, widths));
+	highest = heights.indexOf(Math.max.apply(null, heights));
 
 	function valueAt(idx) {
 		return {
@@ -76342,21 +76369,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card card-body card-comment" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "comment-area" }, [
+      _c("form", [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.newComment,
+              expression: "newComment"
+            }
+          ],
+          staticClass: "comment-textbox",
+          attrs: { type: "text" },
+          domProps: { value: _vm.newComment },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.newComment = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "comment-label", attrs: { for: "Username" } },
+          [_vm._v("memoの更新")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn m-0 p-1", on: { click: _vm.editComment } },
+          [_vm._v("登録")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-body" }, [
-      _vm._v("\n          アコーディオンのテスト\n          "),
-      _c(
-        "a",
-        { staticClass: "btn btn-link collapse-close", attrs: { href: "#" } },
-        [_vm._v("閉じる")]
-      )
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "btn btn-link collapse-close up-icon",
+        attrs: { href: "#" }
+      },
+      [_c("i", { staticClass: "fas fa-chevron-circle-up up-icon" })]
+    )
   }
 ]
 render._withStripped = true
@@ -88683,6 +88750,12 @@ var app_comment = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app_comment',
   components: {
     ListComment: _components_ListComment__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  data: {
+    // newCommentは変数 入力された値はこの変数に格納する
+    newComment: '',
+    // 変数を後ほど格納する配列
+    comment: []
   }
 });
 
@@ -88906,15 +88979,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************!*\
   !*** ./resources/js/components/ListComment.vue ***!
   \*************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ListComment_vue_vue_type_template_id_0d6cab74___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListComment.vue?vue&type=template&id=0d6cab74& */ "./resources/js/components/ListComment.vue?vue&type=template&id=0d6cab74&");
 /* harmony import */ var _ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListComment.vue?vue&type=script&lang=js& */ "./resources/js/components/ListComment.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -88944,15 +89016,13 @@ component.options.__file = "resources/js/components/ListComment.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/components/ListComment.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ListComment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListComment.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListComment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

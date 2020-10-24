@@ -315,6 +315,9 @@ h2 {
 }
 
 /* list page */
+.card-body {
+    text-align: center;
+}
 .list-title-icon i {
     float: right;
     margin-left: 1rem;
@@ -329,9 +332,21 @@ h2 {
     display: inline-block;
     width: 100%;
     padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+.list-footer-comment .fa {
+    transition: ease-in-out 300ms;
+    float: right;
+    line-height: 1.5rem;
+    /* margin-right: 3rem; */
+}
+.rotate-fa {
+    transform: rotate(180deg);
 }
 .card-bottom {
     position: relative;
+    width: 50%;
+    margin: 0 auto;
 }
 .card-bottom button {
     position: absolute;
@@ -343,6 +358,54 @@ h2 {
     font-size: 0.95rem;
     margin-left: 0.5rem;
 }
+.card-comment {
+    margin-bottom: 0 !important;
+    position: relative;
+}
+.card-comment .up-icon {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.5rem;
+}
+.comment-area {
+    width: 90%;
+    padding: 1rem;
+    position: relative;
+    margin: 0 auto;
+}
+.comment-area button {
+    position: absolute;
+    bottom: -0.9rem;
+    right: 0;
+}
+.comment-label {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    font-size: 16px;
+    color: #a0a0a0;
+    transition: all 0.25s ease;
+}
+.focus {
+    top: -15px;
+    left: 5px;
+    font-size: 14px;
+    /* color: #fff; */
+}
+.comment-textbox {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    /* margin-top: 50px;
+    padding: 15px; */
+    /* border: none; */
+    border-radius: 5px;
+    font-size: 16px;
+    color: #a0a0a0;
+    outline: none;
+}
+
 /* -------------------------------------------------------------------------------------------- */
 /*  */
 /* モバイルサイズ 今回のトップ画面では720pxをボーダーとする */
