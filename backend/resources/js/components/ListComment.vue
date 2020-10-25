@@ -9,9 +9,9 @@
         <div class="comment-area">
             <form>
 
-                <input type="text" v-model="newComment" class="comment-textbox">
+                <input type="text" v-model="comment" class="comment-textbox">
 
-                    <label class="comment-label" for="Username">memoの更新</label>
+                    <label class="comment-label" for="Username">memo</label>
 
                     <button class="btn m-0 p-1" v-on:click="editComment">登録</button>
             </form>
@@ -49,26 +49,21 @@ export default {
     // Laravelからv-bindにより Exposresテーブルからcommentカラムのデータを取得しておく
     props:["comment"],
 
-    data: function () {
+    data() { //データの初期値の設定
         return{
             //postで送信するためのリクエストデータ初期化
             request:{
-                newComment:''
+                comment:''
             }
-        }
+        };
     },
     methods: {
-
-        // addComment: function(){
-        //     this.comment.push(this.newComment);
-        // },
-
         // 入力したコメントを送信する
         editComment(){
             //リクエストデータに入力値を代入
-            this.request.comment = this.newComment;
+            this.request.comment = this.comment;
             //axiosでリクエストデータ送信
-            axios.post('/users', this.request).then(res => {
+            axios.post('/', this.request).then(res => {
                 console.log(res.data);
             });
         }

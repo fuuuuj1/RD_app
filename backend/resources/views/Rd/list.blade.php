@@ -47,26 +47,30 @@
             {{-- card bottomの部分 --}}
             <div class="card-bottom">
 
-                {{-- コメントを表示する コメントなければ別メッセージを表示 spanの中身だけvueに差し替えたらいいのでは？ --}}
+                {{-- コメントを表示する コメントなければ別メッセージを表示 spanの中身だけvueに差し替えたらいいのでは？
+                    コンポーネント間でのデータ受け渡しが困難であればbladeでのメモ表示にする --}}
 
-                @if (isset($exposure->comment))
+                {{-- @if (isset($exposure->comment))
                 <span class="list-footer-comment" data-toggle="collapse" data-target="{{"#collapse". "$exposure->year". "$exposure->month"}}" aria-expanded="false" aria-controls="{{"collapse". "$exposure->year". "$exposure->month"}}">{{$exposure->comment}}</span>
                 @else
                 <span class="list-footer-comment" data-toggle="collapse" data-target="{{"#collapse". "$exposure->year". "$exposure->month"}}" aria-expanded="false" aria-controls="{{"collapse". "$exposure->year". "$exposure->month"}}">memo<i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                @endif
+                @endif --}}
 
-                {{-- commentに入力値があれば表示。nullであればmemoを表記する spanをいれこにして実装 --}}
-                {{-- <span class="list-footer-comment" data-toggle="collapse" data-target="{{"#collapse". "$exposure->year". "$exposure->month"}}" aria-expanded="false" aria-controls="{{"collapse". "$exposure->year". "$exposure->month"}}">memo
-                    <list-comment-title v-bind:comment="{{ $exposure->comment}}"></list-comment-title>
-                    <i class="fa fa-angle-down" aria-hidden="true"></i></span> --}}
+
+                    <span class="list-footer-comment" data-toggle="collapse" data-target="{{"#collapse". "$exposure->year". "$exposure->month"}}" aria-expanded="false" aria-controls="{{"collapse". "$exposure->year". "$exposure->month"}}">
+                        <list-memo></list-memo>
+                        <i class="fa fa-angle-down" aria-hidden="true"></i></span>
 
             </div>
 
 
             {{-- アコーディオン部分 --}}
-            <div class="collapse" id="{{"collapse". "$exposure->year". "$exposure->month"}}">
-                <list-comment></list-comment>
-            </div>
+
+                <div class="collapse" id="{{"collapse". "$exposure->year". "$exposure->month"}}">
+                    <list-comment></list-comment>
+                </div>
+
+
 
         </div>
         @endforeach

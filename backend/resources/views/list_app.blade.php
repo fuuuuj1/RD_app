@@ -19,7 +19,9 @@
 
 <body>
     <div id="app_comment">
-        @yield('content')
+        <div id="app_memo">
+            @yield('content')
+        </div>
     </div>
 
   {{-- 作成したjsファイルの読み込み --}}
