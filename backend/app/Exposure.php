@@ -20,7 +20,7 @@ class Exposure extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'exposure_record_id';
 
     /**
      * 線量の測定部位の情報を取得
@@ -37,5 +37,6 @@ class Exposure extends Model
         'position_id',
         'dose_body',
         'dose_neck',
+        'comment',
     ];
 }

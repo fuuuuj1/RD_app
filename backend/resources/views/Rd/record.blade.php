@@ -86,7 +86,7 @@
                 <div class="form-row form-group">
 
                     <div class="col-sm-4 label-column">
-                        <label class="col-form-label" for="pawssword-input-field">線量(胸部または腹部)</label>
+                        <label class="col-form-label">線量(胸部または腹部)</label>
                     </div>
 
                     <div class="col-sm-6 col-lg-4 input-column">
@@ -98,7 +98,7 @@
                 <div class="form-row form-group">
 
                     <div class="col-sm-4 label-column">
-                        <label class="col-form-label" for="repeat-pawssword-input-field">線量(頸部)&nbsp;</label>
+                        <label class="col-form-label">線量(頸部)&nbsp;</label>
                     </div>
 
                     <div class="col-sm-6 col-lg-4 input-column">

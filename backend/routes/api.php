@@ -13,4 +13,3 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/chart', 'ChartController@index')->name('chart.index')->middleware('auth');

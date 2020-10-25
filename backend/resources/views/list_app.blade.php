@@ -18,9 +18,11 @@
 </head>
 
 <body>
-    <div id="app_comment">
-        <div id="app_memo">
-            @yield('content')
+    <div id="app_button">
+        <div id="app_comment">
+            <div id="app_memo">
+                @yield('content')
+            </div>
         </div>
     </div>
 

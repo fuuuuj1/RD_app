@@ -57,6 +57,10 @@ export default {
             }
         };
     },
+    // axiosによりlistページにアクセスしたら線量データを取得する
+    mounted: function(){
+    axios.get('/api/exposures').then(response => console.log(response))
+    },
     methods: {
         // 入力したコメントを送信する
         editComment(){
