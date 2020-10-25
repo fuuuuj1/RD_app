@@ -18,16 +18,12 @@
 </head>
 
 <body>
-    <div id="app_button">
-        <div id="app_comment">
-            <div id="app_memo">
-                @yield('content')
-            </div>
-        </div>
+    <div id="app2">
+        @yield('content')
     </div>
 
   {{-- 作成したjsファイルの読み込み --}}
-  <script src="{{ mix('js/app.js') }}" defer></script>
+  <script src="{{ mix('js/app.js') }}"></script>
   <!-- JQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
