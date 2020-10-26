@@ -10,16 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\RdController;
+
 Auth::routes();
+
 Route::get('/', 'RdController@index')->name('RD.index');
-Route::resource('/RD', 'RDController')->names(['create' => 'RD.record'])->except(['index', 'show'])->middleware('auth');
+
+Route::resource('/RD', 'RdController')
+->names(['create' => 'RD.record'])
+->except(['index', 'show','destroy'])
+->middleware('auth');
 
 // ユーザーページの表示ルートの設定
-Route::get('/userpage', 'RdController@userpage')->name('RD.userpage')->middleware('auth');
+Route::get('/userpage', 'RdController@userpage')->name('RD.userpage')
+->middleware('auth');
+
 // 線量記録をリスト形式で表示する
-Route::get('/list', 'RdController@list')->name('RD.list')->middleware('auth');
-// 線量記録のリストページでコメントを記入、保存できるようにする
-Route::post('/list', 'RdController@list')->name('RD.list')->middleware('auth');
+Route::get('list', 'RdController@list')
+->name('RD.list')
+->middleware('auth');
+
+// 線量記録をリストページで削除する
+Route::delete('list', 'RdController@destroy')
+->name('RD.destroy')
+->middleware('auth');
+
 
 // 線量記録をチャートで表示する
-Route::get('chart', 'ChartController@index')->name('Chart.index')->middleware('auth');
+Route::get('chart', 'ChartController@index')
+->name('Chart.index')
+->middleware('auth');

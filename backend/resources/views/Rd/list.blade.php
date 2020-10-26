@@ -24,6 +24,7 @@
                 <span class="list-title-icon">
 
                         <i class="far fa-edit" data-toggle="modal" data-target="{{"#centralModalEdit". "$exposure->year". "$exposure->month"}}"></i>
+
                         {{-- 線量記録編集のモーダル --}}
                         <div class="modal fade" id="{{"centralModalEdit". "$exposure->year". "$exposure->month"}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -67,7 +68,7 @@
 
                         <i class="far fa-trash-alt" data-toggle="modal" data-target="{{"#centralModalDanger". "$exposure->year". "$exposure->month"}}"></i>
 
-                        <!-- Central Modal Medium Danger -->
+                        <!-- 線量記録 削除のモーダル -->
                         <div class="modal fade" id="{{"centralModalDanger". "$exposure->year". "$exposure->month"}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -91,14 +92,18 @@
 
                             <!--Footer-->
                             <div class="modal-footer justify-content-center">
-                                <a type="button" class="btn btn-danger">記録の削除</a>
+                                <form method="POST" action="{{ route('RD.destroy',['exposure' => $exposure]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">記録の削除</button>
+                                </form>
                                 <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">キャンセル</a>
                             </div>
                             </div>
                             <!--/.Content-->
                         </div>
                         </div>
-                        <!-- Central Modal Medium Success-->
+                        <!-- 削除モーダルここまで-->
 
 
                 </span>

@@ -109,9 +109,18 @@ class RdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Exposure $exposure)
     {
-        //
+
+        $exposure->delete();
+
+        // $id = Auth::id();
+        // $exposures = Exposure::where('user_id', $id)
+        // ->orderBy('year', 'desc')
+        // ->orderBy('month', 'desc')
+        // ->paginate(9);
+        // return redirect()->route('RD.list', ['exposures' => $exposures]);
+        return redirect()->route('RD.list');
     }
 
     /**
@@ -120,7 +129,7 @@ class RdController extends Controller
      */
     public function userpage()
     {
-        return view('Rd.userpage');
+        return view('RD.userpage');
     }
 
     /**
@@ -136,6 +145,6 @@ class RdController extends Controller
         ->orderBy('month', 'desc')
         ->paginate(9);
 
-        return view('Rd.list', ['exposures' => $exposures]);
+        return view('RD.list', ['exposures' => $exposures]);
     }
 }
