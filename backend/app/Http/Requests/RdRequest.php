@@ -29,6 +29,7 @@ class RdRequest extends FormRequest
             'position_id' => ['required'],
             'dose_body' => ['nullable', 'numeric'],
             'dose_neck' => ['nullable', 'numeric'],
+            'comment' => ['nullable', 'string', 'size:20'],
         ];
     }
 
@@ -40,6 +41,7 @@ class RdRequest extends FormRequest
             'position' => '着用部位',
             'dose_body' => '体部線量',
             'dose_neck' => '頸部線量',
+            'comment' => 'メモ'
         ];
     }
 }

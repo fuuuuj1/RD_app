@@ -4,6 +4,8 @@
 
 @section('content')
 
+ @include('new-nav')
+
 <div class="page-body">
 
     <!-- 記録リストページ -->
@@ -12,9 +14,17 @@
 
     <div class="card-columns">
 
+        @include('error_message')
+
         @foreach($exposures as $exposure)
         {{-- cardの開始 --}}
         <div class="card mb-4">
+
+            {{-- テスト --}}
+            {{-- @php
+                var_dump($exposure);
+            @endphp --}}
+
             {{-- Headerで登録している年、月の表示 --}}
             <div class="card-header bg-transparent border-danger">
                 {{$exposure->year. "年". $exposure->month. "月"}}
@@ -31,6 +41,9 @@
                             <div class="modal-dialog" role="document">
 
                                 <div class="modal-content">
+                                <form action="{{ route('RD.update', ['exposure' => $exposure]) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
 
                                 <div class="modal-header text-center">
 
@@ -40,18 +53,20 @@
                                     </button>
 
                                 </div>
+
+
                                 <div class="modal-body mx-3">
 
                                     <div class="md-form mb-5">
 
-                                    <input type="text" inputmode="numeric" class="form-control validate">
+                                    <input type="text" inputmode="numeric" class="form-control validate" name="dose_body" value="{{ $exposure->dose_body ?? old('dose_body') }}">
                                     <label data-error="wrong" data-success="right">体部線量(mSv)</label>
 
                                     </div>
 
                                     <div class="md-form mb-4">
 
-                                    <input type="text" inputmode="numeric" class="form-control validate">
+                                    <input type="text" inputmode="numeric" class="form-control validate" name="dose_neck" value="{{ $exposure->dose_neck ?? old('dose_neck') }}">
                                     <label data-error="wrong" data-success="right">頸部線量(mSv)</label>
 
                                     </div>
@@ -59,9 +74,10 @@
                                 </div>
 
                                 <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-default">記録の更新</button>
+                                    <button type="submit" class="btn btn-default">記録の更新</button>
                                 </div>
 
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -164,10 +180,13 @@
 
 
                 <div class="modal-content">
+                    <form action="{{ route('RD.update', ['exposure' => $exposure]) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
 
                     <div class="modal-header">
                         @if (isset($exposure->comment))
-                        <h5 class="modal-title" id="ModalComment">{{$exposure->comment}}</h5>
+                        <h5 class="modal-title" id="ModalComment">memo　{{$exposure->comment}}</h5>
                         @else
                         <h5 class="modal-title" id="ModalComment">memo</h5>
                         @endif
@@ -178,7 +197,7 @@
 
                     <div class="modal-body">
                         <div class="md-form mb-5">
-                        <input type="text" name="comment" class="form-control validate">
+                        <input type="text" name="comment" class="form-control validate" value="{{ $exposure->comment ?? old('comment') }}">
                         <label>memo</label>
                         </div>
                     </div>
@@ -187,6 +206,7 @@
                         <button class="btn btn-default">メモの登録</button>
                     </div>
 
+                    </form>
                 </div>
 
             </div>

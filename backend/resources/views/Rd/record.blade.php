@@ -10,8 +10,15 @@
     @include('error_message')
 
 
-    <div class="col-md-8 offset-md-2">
 
+    <div class="col-md-8 offset-md-2 form-field">
+
+        <div class="icon-box">
+            <a href="{{route('RD.index')}}">
+                <i class="far fa-times-circle fa-2x"></i>
+                <span class="close-message" style="font-size: small">閉じる</span>
+            </a>
+        </div>
 
         <form class="custom-form" action="{{route('RD.store')}}" method="POST">
             @csrf

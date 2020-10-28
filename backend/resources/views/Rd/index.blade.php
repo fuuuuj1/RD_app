@@ -1,10 +1,10 @@
-@extends('app')
+@extends('new_app_mdb')
 
 @section('title', 'TOPページ')
 
 @section('content')
 
- @include('nav')
+ @include('new-nav')
 
 <div class="top-page">
     <main>
@@ -83,4 +83,5 @@
 
 </div>
 
+@include('footer')
 @endsection

@@ -98,9 +98,11 @@ class RdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Exposure $exposure)
     {
-        //
+        $exposure->fill($request->all())->save();
+
+        return redirect()->route('RD.list');
     }
 
     /**
@@ -111,15 +113,9 @@ class RdController extends Controller
      */
     public function destroy(Exposure $exposure)
     {
-
         $exposure->delete();
 
-        // $id = Auth::id();
-        // $exposures = Exposure::where('user_id', $id)
-        // ->orderBy('year', 'desc')
-        // ->orderBy('month', 'desc')
-        // ->paginate(9);
-        // return redirect()->route('RD.list', ['exposures' => $exposures]);
+        // uriのRD.listが指定されたら listメソッドが動くのでページネーションなどの記述は不要
         return redirect()->route('RD.list');
     }
 

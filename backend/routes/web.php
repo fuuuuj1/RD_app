@@ -32,8 +32,13 @@ Route::get('list', 'RdController@list')
 ->middleware('auth');
 
 // 線量記録をリストページで削除する
-Route::delete('list', 'RdController@destroy')
+Route::delete('list/{exposure}', 'RdController@destroy')
 ->name('RD.destroy')
+->middleware('auth');
+
+// 線量記録をリストページで編集する
+Route::patch('list/{exposure}', 'RdController@update')
+->name('RD.update')
 ->middleware('auth');
 
 

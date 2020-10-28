@@ -20,7 +20,7 @@ class Exposure extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'exposure_record_id';
+    protected $primaryKey = 'exposure_id';
 
     /**
      * 線量の測定部位の情報を取得

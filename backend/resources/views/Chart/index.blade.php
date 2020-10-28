@@ -2,6 +2,8 @@
 
 @section('title', '線量グラフ')
 
+ @include('new-nav')
+
 @section('content')
     {{-- <random-chart></random-chart> --}}
     <exposure-chart></exposure-chart>
