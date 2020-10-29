@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/Navigation-Clean.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/Pretty-Registration-Form.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>

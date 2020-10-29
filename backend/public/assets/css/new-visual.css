@@ -85,15 +85,63 @@ h2 {
     margin-top: 96px !important;
 }
 
+/* ナビバー */
+#header {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+.navbar-brand #header-logo {
+    /* position: absolute;
+    left: 50px;
+    top: 17px; */
+    font-family: "Verlag A", "Verlag B";
+    font-weight: 800;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+.nav-center {
+    margin: 0 auto !important;
+}
+.navbar-nav li {
+    margin: 0 12px !important;
+}
+.nav-login a {
+    padding: 5px 20px;
+    background: #333333;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    color: #ffffff;
+    width: 100px;
+    text-align: center;
+}
+.nav-login button {
+    padding: 5px 10px;
+    background: #333333;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    color: #ffffff;
+    width: 110px;
+    text-align: center;
+}
+.navbar-nav {
+    margin-bottom: 0;
+}
+.nav-right {
+    margin-block-start: 0;
+}
+
 /* メインビジュアル */
 .top {
     height: 580px;
     width: 100%;
     position: relative;
-    margin: 0 auto;
+    margin: 58px auto 0;
 }
 .top-image {
-    background: url(./RD_デザイン/top.jpg) no-repeat bottom;
+    background: url(../img/top_resize2.jpg) no-repeat bottom;
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -140,22 +188,25 @@ h2 {
 }
 #link-bnr ul li a .thumb {
     width: 33%;
+    height: 100%;
 }
 #link-bnr ul li a {
     display: flex;
     align-items: center;
+    height: 100%;
     color: #000;
 }
 #link-bnr ul li a .thumb img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
 }
 #link-bnr ul li a .text {
     width: 67%;
     padding-left: 15px;
     line-height: 1.5;
-    background: url(./RD_デザイン/right_arrow.png) right 8px center
-        no-repeat;
+    background: url(../img/right_arrow.png) right 8px center no-repeat;
     background-size: 14px;
 }
 #link-bnr ul li a .text small {
@@ -177,7 +228,7 @@ h2 {
     overflow: hidden;
 }
 .sub-image {
-    background-image: url(./RD_デザイン/black-bone.jpg);
+    background-image: url(../img/black-bone.jpg);
     background-size: cover;
     position: absolute;
     top: 0px;
@@ -223,8 +274,6 @@ h2 {
 
 /* link block */
 #link-block {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     padding: 60px 40px 0;
     text-align: center;
@@ -286,7 +335,7 @@ h2 {
     z-index: 1;
     width: 100%;
     height: 100%;
-    background: url(./RD_デザイン/bookshelf.jpg) no-repeat center center;
+    background: url(../img/bookshelf_resize.jpg) no-repeat center center;
     background-size: cover;
     opacity: 0.2;
 }
@@ -420,7 +469,7 @@ h2 {
     text-decoration: none;
 }
 .text-center p {
-    display: table-cell;
+    /* display: table-cell; */
     vertical-align: middle;
     text-align: center;
     margin: 0 auto;
@@ -432,6 +481,82 @@ h2 {
 }
 .modal-header p {
     margin: 0 auto !important;
+}
+/* 閉じるボタンのテキスト */
+.close-message {
+    font-size: small !important;
+}
+
+/* footer */
+#footer {
+    margin-bottom: 15px;
+}
+.gray-area {
+    width: 100%;
+    height: 60px;
+    background-color: #f4f4f4;
+    margin-top: 40px;
+}
+.black {
+    background-color: #333333 !important;
+}
+.footer-inner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-logout button {
+    padding: 5px 0;
+    background: #333333;
+    border: none;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+.hr-color {
+    background-color: #dcdcdc;
+}
+.footer-content div {
+    border-left: solid 0.8px #999;
+}
+.footer-content div:first-child {
+    border: none;
+}
+.footer-link {
+    text-align: center;
+    vertical-align: middle;
+}
+/* -------------------------------------------------------------------------------------------- */
+/* タブレットサイズにnavbar対応のための記述 */
+@media screen and (max-width: 992px) {
+    .nav-center {
+        margin-left: 0 !important;
+    }
+    .nav-login a {
+        border: none;
+        width: auto;
+        color: yellow !important;
+    }
+    .nav-login button {
+        border: none;
+        width: auto;
+        color: yellow !important;
+    }
+    .nav-link {
+        display: inline-block !important;
+    }
+    .footer-logout button {
+        color: yellow;
+    }
+    .footer-login a {
+        color: yellow !important;
+    }
+    .gray-area {
+        height: 50px;
+        margin-top: 30px;
+    }
+    .footer-content div {
+        border-left: none;
+    }
 }
 /* -------------------------------------------------------------------------------------------- */
 /*  */
@@ -445,12 +570,24 @@ h2 {
         margin: 48px 0 0 0;
     }
 
+    /* ナビバー */
+    .navbar-brand #header-logo {
+        position: absolute;
+        left: 12px;
+        top: 20px;
+        font-size: 14px;
+    }
+    .nav-center {
+        margin-left: 0 !important;
+    }
+
     /* メインビジュアル */
     .top {
         height: 180px;
         width: 100%;
         box-sizing: border-box;
         padding: 0 0 0 48px;
+        margin-top: 0;
     }
     .top-title {
         position: absolute;

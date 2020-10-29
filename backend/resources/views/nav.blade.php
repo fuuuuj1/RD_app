@@ -3,8 +3,8 @@
     style="padding: 10px">
 
     <div class="container">
-        <a class="navbar-brand text-success" href="/"
-        >Radiation<br />Dosimeter</a>
+        <a class="navbar-brand text-success" href="{{route('RD.index')}}">
+        Radiation<br/>Dosimeter</a>
         <button
         data-toggle="collapse"
         class="navbar-toggler"
@@ -49,7 +49,7 @@
                 <button class="nav-link" type="submit" form="logout-button"
                 href="{{route('logout')}}"
                 style="border:0px;background-color:transparent;cursor:pointer;"
-                >ログアウト</a>
+                >ログアウト
             </li>
         </form>
         @endauth
@@ -63,4 +63,4 @@
         </div>
         <a href="#"></a>
     </div>
-    </nav>
+</nav>

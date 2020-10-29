@@ -10,6 +10,20 @@ body {
     background: url(../img/RD_top.jpg) top / cover no-repeat;
     min-height: 100%;
 }
+/* ------------------------------ */
+/* 登録フォーム画面共通設定 */
+.form-field {
+    position: relative;
+}
+.icon-box {
+    position: absolute;
+    top: 4rem;
+    left: 5rem;
+}
+.icon-box a {
+    text-decoration: none;
+    color: dimgrey;
+}
 
 /* 会員登録ページの設定 */
 .register-content {
@@ -32,4 +46,14 @@ body {
 .record-content {
     background-color: #dddddd;
     height: 100%;
+}
+.register-form {
+    position: relative;
+}
+.input-column .custom-select {
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    height: 42px;
+    margin-top: 0 !important;
 }

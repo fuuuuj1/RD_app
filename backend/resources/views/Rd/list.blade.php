@@ -4,6 +4,8 @@
 
 @section('content')
 
+ @include('new-nav')
+
 <div class="page-body">
 
     <!-- 記録リストページ -->
@@ -12,9 +14,17 @@
 
     <div class="card-columns">
 
+        @include('error_message')
+
         @foreach($exposures as $exposure)
         {{-- cardの開始 --}}
         <div class="card mb-4">
+
+            {{-- テスト --}}
+            {{-- @php
+                var_dump($exposure);
+            @endphp --}}
+
             {{-- Headerで登録している年、月の表示 --}}
             <div class="card-header bg-transparent border-danger">
                 {{$exposure->year. "年". $exposure->month. "月"}}
@@ -24,12 +34,16 @@
                 <span class="list-title-icon">
 
                         <i class="far fa-edit" data-toggle="modal" data-target="{{"#centralModalEdit". "$exposure->year". "$exposure->month"}}"></i>
+
                         {{-- 線量記録編集のモーダル --}}
                         <div class="modal fade" id="{{"centralModalEdit". "$exposure->year". "$exposure->month"}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
                             <div class="modal-dialog" role="document">
 
                                 <div class="modal-content">
+                                <form action="{{ route('RD.update', ['exposure' => $exposure]) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
 
                                 <div class="modal-header text-center">
 
@@ -39,18 +53,20 @@
                                     </button>
 
                                 </div>
+
+
                                 <div class="modal-body mx-3">
 
                                     <div class="md-form mb-5">
 
-                                    <input type="text" inputmode="numeric" class="form-control validate">
+                                    <input type="text" inputmode="numeric" class="form-control validate" name="dose_body" value="{{ $exposure->dose_body ?? old('dose_body') }}">
                                     <label data-error="wrong" data-success="right">体部線量(mSv)</label>
 
                                     </div>
 
                                     <div class="md-form mb-4">
 
-                                    <input type="text" inputmode="numeric" class="form-control validate">
+                                    <input type="text" inputmode="numeric" class="form-control validate" name="dose_neck" value="{{ $exposure->dose_neck ?? old('dose_neck') }}">
                                     <label data-error="wrong" data-success="right">頸部線量(mSv)</label>
 
                                     </div>
@@ -58,16 +74,17 @@
                                 </div>
 
                                 <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-default">記録の更新</button>
+                                    <button type="submit" class="btn btn-default">記録の更新</button>
                                 </div>
 
+                                </form>
                                 </div>
                             </div>
                         </div>
 
                         <i class="far fa-trash-alt" data-toggle="modal" data-target="{{"#centralModalDanger". "$exposure->year". "$exposure->month"}}"></i>
 
-                        <!-- Central Modal Medium Danger -->
+                        <!-- 線量記録 削除のモーダル -->
                         <div class="modal fade" id="{{"centralModalDanger". "$exposure->year". "$exposure->month"}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -91,14 +108,18 @@
 
                             <!--Footer-->
                             <div class="modal-footer justify-content-center">
-                                <a type="button" class="btn btn-danger">記録の削除</a>
+                                <form method="POST" action="{{ route('RD.destroy',['exposure' => $exposure]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">記録の削除</button>
+                                </form>
                                 <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">キャンセル</a>
                             </div>
                             </div>
                             <!--/.Content-->
                         </div>
                         </div>
-                        <!-- Central Modal Medium Success-->
+                        <!-- 削除モーダルここまで-->
 
 
                 </span>
@@ -159,10 +180,13 @@
 
 
                 <div class="modal-content">
+                    <form action="{{ route('RD.update', ['exposure' => $exposure]) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
 
                     <div class="modal-header">
                         @if (isset($exposure->comment))
-                        <h5 class="modal-title" id="ModalComment">{{$exposure->comment}}</h5>
+                        <h5 class="modal-title" id="ModalComment">memo　{{$exposure->comment}}</h5>
                         @else
                         <h5 class="modal-title" id="ModalComment">memo</h5>
                         @endif
@@ -173,7 +197,7 @@
 
                     <div class="modal-body">
                         <div class="md-form mb-5">
-                        <input type="text" name="comment" class="form-control validate">
+                        <input type="text" name="comment" class="form-control validate" value="{{ $exposure->comment ?? old('comment') }}">
                         <label>memo</label>
                         </div>
                     </div>
@@ -182,6 +206,7 @@
                         <button class="btn btn-default">メモの登録</button>
                     </div>
 
+                    </form>
                 </div>
 
             </div>

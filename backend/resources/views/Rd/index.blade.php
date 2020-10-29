@@ -1,86 +1,257 @@
-@extends('app')
+@extends('new_app_mdb')
 
-@section('title', 'TOPページ')
+@section('title', 'RD TOPページ')
 
 @section('content')
 
- @include('nav')
+    @include('new-nav')
 
-<div class="top-page">
-    <main>
-        <div class="row">
-            <div class="col">
-                <div></div>
+<div id="all">
+      <!-- コンテンツの開始 articleタグで独立させる -->
+      <article class="page">
+        <!-- メインビジュアル -->
+        <div class="page-header">
+          <div class="top">
+            <div class="top-image"></div>
+
+            <div class="top-title">
+              <h1>
+                <span>医療従事者の皆様</span>
+                <span>被ばく線量</span>
+                <span>把握していますか？</span>
+              </h1>
             </div>
+          </div>
         </div>
+        <!-- メインビジュアル終了 -->
 
-    <div class="row" style="margin: auto -15px">
+        <div class="page-body">
+        <!-- Jumbotron サイトの紹介を行う -->
+        <div class="jumbotron text-center blue-grey lighten-5">
 
-        <div class="col-md-6 col-lg-7 offset-lg-0"
-             style="margin: 0 auto; margin-right: auto; margin-left: auto; width: 100%;">
+            <!-- Title -->
+            <h2 class="card-title h2">Radiation Dosimeter とは何をするサイトなのか？</h2>
 
-        <div class="d-lg-flex justify-content-lg-center container"></div>
+            {{-- Sub title --}}
+            <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理するためのサイト
+            </h5>
 
-        <p class="top-text" style="color: rgb(223, 232, 238); font-size: 25px; margin-top: 30%;
-               margin-left: 5%; line-height: 40px;">
-          あなたは自身の被ばく線量を把握していますか？<br />毎月の被ばく線量を把握して、日々の業務を安全に従事するために<br>当サイトをご活用ください
-        </p>
+            <!-- Grid row -->
+            <div class="row d-flex justify-content-center">
 
-        @guest
-        <div
-        class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-lg-center top-link"
-        style="width: 100%; margin-top: 70px; margin-right: auto; margin-left: auto;
-              padding-right: auto; padding-left: auto;">
+                <!-- Grid column -->
+                <div class="col-xl-7 pb-2">
 
-          <a class="btn btn-light" role="button"
-            style="margin-right: auto; margin-left: auto; color: #ffffff; background-color: #6caee0;"
-            href="{{route('login')}}">ログイン</a>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga aliquid dolorem ea distinctio exercitationem delectus qui, quas eum architecto, amet quasi accusantium, fugit consequatur ducimus obcaecati numquam molestias hic itaque accusantium doloremque laudantium, totam rem aperiam.</p>
 
-        </div>
+                </div>
+                <!-- Grid column -->
 
-        <div
-            class="d-flex d-md-flex d-lg-flex justify-content-md-center justify-content-lg-center top-link"
-            style="margin-top: 21px; margin-right: auto; margin-left: auto; width: 100%;">
+                <!-- Grid row -->
+            </div>
 
-          <a class="btn btn-light d-lg-flex justify-content-lg-center top-btn" role="button"
-          style="margin-right: auto; margin-left: auto; text-align: center; background-color: #6caee0;
-                color: #ffffff;"
-              href="{{route('register')}}"
-              >ユーザー登録</a>
-        </div>
-        @endguest
+                <hr class="my-4 pb-2">
 
-        @auth
-        <div
-        class="d-flex d-md-flex d-lg-flex justify-content-md-center align-items-lg-center top-link"
-        style="width: 100%; margin-top: 70px; margin-right: auto; margin-left: auto;
-              padding-right: auto; padding-left: auto;">
+                <div class="row d-flex justify-content-center">
 
-          <a class="btn btn-light" role="button"
-            style="margin-right: auto; margin-left: auto; color: #ffffff; background-color: #6caee0;"
-            href="{{route('RD.userpage')}}">マイページ</a>
+                    <div class="col-xl-7 pb-2">
+
+                    <p class="card-text" style="text-align: center">以下の3ステップにより、あなたの被ばく線量を直感的に分かりやすく把握することができます。</p>
+
+                    </div>
+
+                </div>
 
         </div>
 
-        <div
-            class="d-flex d-md-flex d-lg-flex justify-content-md-center justify-content-lg-center top-link"
-            style="margin-top: 21px; margin-right: auto; margin-left: auto; width: 100%;">
+        <!-- Jumbotron -->
+        </div>
 
-          <a class="btn btn-light d-lg-flex justify-content-lg-center top-btn" role="button"
-          style="margin-right: auto; margin-left: auto; text-align: center; background-color: #6caee0;
-                color: #ffffff;"
-              href="{{route('RD.record')}}"
-              >線量の記録</a>
+        <div class="page-body">
+          <!-- link list -->
+
+          <section id="link-bnr" class="section-base">
+            <ul>
+              <li>
+                <a href="">
+                  <div class="thumb">
+                    <img
+                        src="{{asset('assets/img/record-res.jpg')}}"
+                        alt="線量記録のノート画像"/>
+                  </div>
+
+                  <div class="text">
+                    <small>毎月の線量を入力</small>
+                    <p>線量記録へ</p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <div class="thumb">
+                    <img src="{{asset('assets/img/chart-res.jpg')}}" alt="グラフの画像" />
+                  </div>
+
+                  <div class="text">
+                    <small>直感的に線量を確認</small>
+                    <p>グラフページへ</p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <div class="thumb">
+                    <img src="{{asset('assets/img/edit-res.jpg')}}" alt="ボード画像" />
+                  </div>
+
+                  <div class="text">
+                    <small>記録の修正</small>
+                    <p>記録の編集</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <!-- link list終了 -->
+          <!-- サブビジュアルのためにいったんpage-bodyを閉じる -->
         </div>
-        @endauth
+        <!-- サブビジュアル -->
+
+        <div class="page-header mg-96">
+          <div class="sub-content">
+            <div class="sub">
+              <div class="sub-image"></div>
+
+              <div class="sub-title">
+                <h1>
+                  <span>ほとんどの方が</span>
+                  <span>自身の線量を</span>
+                  <span>把握していません</span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- サブビジュアル終了 -->
+
+        <div class="page-body">
+          <!-- サイトで伝えたい事、紹介 -->
+          <section class="section-base mg-69">
+            <h2 class="title-section">このサイトの思い</h2>
+
+            <!-- MDBootstrapの利用 -->
+
+            <!-- Card deck -->
+            <div class="card-deck">
+
+              <!-- Card -->
+              <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="{{asset('assets/img/notlook-res.jpg')}}" alt="見ざる聞かざる聞かざるの骨の写真">
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                  <!--Title-->
+                  <h4 class="card-title">Card title</h4>
+                  <!--Text-->
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+
+                </div>
+
+              </div>
+              <!-- Card -->
+
+              <!-- Card -->
+              <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="{{asset('assets/img/ctimage-pc.jpg')}}" alt="CTを見ているDrの画像">
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                  <!--Title-->
+                  <h4 class="card-title">Card title</h4>
+                  <!--Text-->
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+
+                </div>
+
+              </div>
+              <!-- Card -->
+
+              <!-- Card -->
+              <div class="card mb-4">
+
+                <!--Card image-->
+                <div class="view overlay">
+                  <img class="card-img-top" src="{{asset('assets/img/medical-team_res.jpg')}}" alt="医療チームの姿の画像">
+                </div>
+
+                <!--Card content-->
+                <div class="card-body">
+
+                  <!--Title-->
+                  <h4 class="card-title">Card title</h4>
+                  <!--Text-->
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+
+                </div>
+
+              </div>
+              <!-- Card -->
+
+            </div>
+            <!-- Card deck -->
 
         </div>
-        <div class="col">
-            <div></div>
+      </article>
+
+      <!-- link block -->
+
+      <div id="link-block">
+        <div class="left">
+          <div class="record">
+            <a href="">
+              <strong>Record</strong>
+              <small>線量の記録をする</small>
+            </a>
+          </div>
+          <div class="contact">
+            <a href="">
+              <strong>Contact</strong>
+              <small>お問い合わせ</small>
+            </a>
+          </div>
         </div>
+
+        <div class="right">
+          <div class="reference">
+            <a href="">
+              <div class="ref-bg"></div>
+              <div class="inner">
+                <strong>Reference</strong>
+                <p>参考となるサイトや書籍の紹介</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- link block終了 -->
     </div>
-    </main>
 
-</div>
+    @include('footer')
 
 @endsection

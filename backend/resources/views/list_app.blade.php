@@ -18,13 +18,10 @@
 </head>
 
 <body>
-    <div id="app_button">
-        <div id="app_comment">
+
             <div id="app_memo">
                 @yield('content')
             </div>
-        </div>
-    </div>
 
   {{-- 作成したjsファイルの読み込み --}}
   <script src="{{ mix('js/app.js') }}" defer></script>
