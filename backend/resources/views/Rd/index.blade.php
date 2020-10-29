@@ -26,6 +26,48 @@
         <!-- メインビジュアル終了 -->
 
         <div class="page-body">
+        <!-- Jumbotron サイトの紹介を行う -->
+        <div class="jumbotron text-center blue-grey lighten-5">
+
+            <!-- Title -->
+            <h2 class="card-title h2">Radiation Dosimeter とは何をするサイトなのか？</h2>
+
+            {{-- Sub title --}}
+            <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理するためのサイト
+            </h5>
+
+            <!-- Grid row -->
+            <div class="row d-flex justify-content-center">
+
+                <!-- Grid column -->
+                <div class="col-xl-7 pb-2">
+
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga aliquid dolorem ea distinctio exercitationem delectus qui, quas eum architecto, amet quasi accusantium, fugit consequatur ducimus obcaecati numquam molestias hic itaque accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid row -->
+            </div>
+
+                <hr class="my-4 pb-2">
+
+                <div class="row d-flex justify-content-center">
+
+                    <div class="col-xl-7 pb-2">
+
+                    <p class="card-text" style="text-align: center">以下の3ステップにより、あなたの被ばく線量を直感的に分かりやすく把握することができます。</p>
+
+                    </div>
+
+                </div>
+
+        </div>
+
+        <!-- Jumbotron -->
+        </div>
+
+        <div class="page-body">
           <!-- link list -->
 
           <section id="link-bnr" class="section-base">
@@ -35,8 +77,7 @@
                   <div class="thumb">
                     <img
                         src="{{asset('assets/img/record-res.jpg')}}"
-                        alt="線量記録のノート画像"
-                    />
+                        alt="線量記録のノート画像"/>
                   </div>
 
                   <div class="text">

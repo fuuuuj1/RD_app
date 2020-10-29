@@ -188,15 +188,19 @@ h2 {
 }
 #link-bnr ul li a .thumb {
     width: 33%;
+    height: 100%;
 }
 #link-bnr ul li a {
     display: flex;
     align-items: center;
+    height: 100%;
     color: #000;
 }
 #link-bnr ul li a .thumb img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
 }
 #link-bnr ul li a .text {
     width: 67%;
@@ -465,7 +469,7 @@ h2 {
     text-decoration: none;
 }
 .text-center p {
-    display: table-cell;
+    /* display: table-cell; */
     vertical-align: middle;
     text-align: center;
     margin: 0 auto;
