@@ -76,9 +76,17 @@
                 </form>
                 @endauth
 
-                        <li class="nav-item nav-contact nav-right">
-                            <a class="nav-link" href="#">コンタクト</a>
-                        </li>
+                @guest
+                    <li class="nav-item nav-login nav-right">
+                        <button class="layer_board_btn nav-link" style="background-color:transparent !important;cursor:pointer; border"> お知らせ</button>
+                </li>
+                @endguest
+
+                @auth
+                <li class="nav-item nav-contact nav-right">
+                    <a class="nav-link" href="#">コンタクト</a>
+                </li>
+                @endauth
                 {{-- </div> --}}
 
                 </ul>
@@ -90,8 +98,8 @@
 
 </header>
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#no-waves .dropdown').removeClass('waves-effect');
     });
-</script>
+</script> --}}

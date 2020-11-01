@@ -1,4 +1,4 @@
-@extends('new_app_mdb')
+@extends('index_app_mdb')
 
 @section('title', 'RD TOPページ')
 
@@ -27,10 +27,10 @@
 
         <div class="page-body">
         <!-- Jumbotron サイトの紹介を行う -->
-        <div class="jumbotron text-center blue-grey lighten-5">
+        <div class="jumbotron text-center blue-grey lighten-5" id="feature">
 
             <!-- Title -->
-            <h2 class="card-title h2">Radiation Dosimeter とは何をするサイトなのか？</h2>
+            <h2 class="card-title h2">何をするためのサイト？</h2>
 
             {{-- Sub title --}}
             <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理するためのサイト
@@ -56,7 +56,7 @@
 
                     <div class="col-xl-7 pb-2">
 
-                    <p class="card-text" style="text-align: center">以下の3ステップにより、あなたの被ばく線量を直感的に分かりやすく把握することができます。</p>
+                    <h5 class="card-text" style="text-align: center">以下の3ステップにより、あなたの被ばく線量を直感的に把握することができます。</h5>
 
                     </div>
 
@@ -76,26 +76,13 @@
                 <a href="">
                   <div class="thumb">
                     <img
-                        src="{{asset('assets/img/record-res.jpg')}}"
-                        alt="線量記録のノート画像"/>
+                        src="{{asset('assets/img/regs-resize.jpg')}}"
+                        alt="ノート画像"/>
                   </div>
 
                   <div class="text">
-                    <small>毎月の線量を入力</small>
-                    <p>線量記録へ</p>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="">
-                  <div class="thumb">
-                    <img src="{{asset('assets/img/chart-res.jpg')}}" alt="グラフの画像" />
-                  </div>
-
-                  <div class="text">
-                    <small>直感的に線量を確認</small>
-                    <p>グラフページへ</p>
+                    <small>まずはユーザー登録 or ログインを</small>
+                    <p>①サイトにログイン</p>
                   </div>
                 </a>
               </li>
@@ -107,8 +94,21 @@
                   </div>
 
                   <div class="text">
-                    <small>記録の修正</small>
-                    <p>記録の編集</p>
+                    <small>次に毎月の被ばく線量を入力</small>
+                    <p>②線量の記録</p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <div class="thumb">
+                    <img  src="{{asset('assets/img/chart-res.jpg')}}" alt="チャート画像" />
+                  </div>
+
+                  <div class="text">
+                    <small>最後に直感的に線量の確認</small>
+                    <p>③グラフの確認</p>
                   </div>
                 </a>
               </li>
@@ -139,7 +139,7 @@
         <div class="page-body">
           <!-- サイトで伝えたい事、紹介 -->
           <section class="section-base mg-69">
-            <h2 class="title-section">このサイトの思い</h2>
+            <h2 class="title-section">このサイトで伝えたいこと</h2>
 
             <!-- MDBootstrapの利用 -->
 
