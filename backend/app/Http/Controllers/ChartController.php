@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Exposure;
+use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
@@ -15,6 +16,6 @@ class ChartController extends Controller
      */
     public function index()
     {
-        return view('Chart.index');
+        return view('Chart.test-chart');
     }
 }

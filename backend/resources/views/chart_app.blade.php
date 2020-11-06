@@ -8,19 +8,19 @@
     @yield('title')
   </title>
 
-  <link rel="stylesheet" href="{{asset('assets/css/new-visual.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{asset('assets/css/new-visual.css')}}">
 </head>
 
 <body>
-    <div id="app2">
+
         @yield('content')
-    </div>
 
   {{-- 作成したjsファイルの読み込み --}}
   <script src="{{ mix('js/app.js') }}"></script>
