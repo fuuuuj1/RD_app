@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ChartController;
+use App\Http\Controllers\ChartsetController;
 use Illuminate\Http\Request;
 
 /*
@@ -13,3 +13,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+// 年データを取得
+Route::get('chart/years', 'ChartsetController@years');
+
+// 指定された年の線量データの取得
+Route::get('chart/{year}', 'ChartsetController@getExposureByYear');
