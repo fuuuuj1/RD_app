@@ -19,4 +19,4 @@ use Illuminate\Http\Request;
 Route::get('chart/years', 'ChartsetController@years');
 
 // 指定された年の線量データの取得
-Route::get('chart', 'ChartsetController@getExposureByYear');
+Route::get('chart/{year}', 'ChartsetController@getExposureByYear');

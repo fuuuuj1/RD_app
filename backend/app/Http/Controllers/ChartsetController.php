@@ -67,7 +67,7 @@ class ChartsetController extends Controller
         //
     }
 
-    // 集計する年を選択する 後ほどユーザーidの合致するデータのだけに絞ること！
+    // 集計する年の取得
     public function years()
     {
 
@@ -77,7 +77,7 @@ class ChartsetController extends Controller
 
     }
 
-    //  指定された計測年の被ばく線量を取得する
+    //  指定された計測年の記録を取得する
     public function getExposureByYear(Request $request)
     {
         // ユーザーidの取得

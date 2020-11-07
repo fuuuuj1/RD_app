@@ -23,7 +23,7 @@
 
                     <label>計測年</label>
                         <select class="form-control" v-model="year" @change="getExposures">
-                            <option v-for="year in years" vbind:value="year">@{{ year }} 年</option>
+                            <option v-for="year in years" :value="year">@{{ year }} 年</option>
                         </select>
 
             </div>
@@ -37,7 +37,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-{{-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
 
@@ -51,9 +51,10 @@
                 chart: null
             },
             methods: {
+
                 getYears() {
 
-                    // 👇 記録年リストを取得
+                    // 記録年リストを取得
                     fetch('/api/chart/years')
                         .then(response => response.json())
                         .then(data => this.years = data);
@@ -61,14 +62,22 @@
 
                 getJson(){
 
-                    // 任意の年の線量データを取得するためにクエリパラメータの設定
+                    // 任意の年のデータを取得するためにクエリパラメータの設定
                     const params = new URLSearchParams();
                     params.set('year', this.year);
 
-                    // fetch('/api/chart/?'+ params)
-                    fetch('/api/chart')
+                    // axios
+                    axios
+                    .get('/api/chart', { params })
+                        .then(response => console.log(response.data));
+
+                    // fetchバージョン
+                    fetch('/api/chart/?year' + params)
                     .then(response => response.json())
-                    .then(data => console.log(data));
+                    .then(data => console.log(data))
+                    .catch(function (error) {
+                            console.log(error);
+                    });;
                 },
 
                 getExposures() {
@@ -78,7 +87,7 @@
                     params.set('year', this.year);
 
 
-                    // 👇 線量データを取得
+                    // 線量データを取得
                     fetch('/api/chart/years?' + params)
                         .then(response => response.json())
                         .then(data => {
@@ -95,14 +104,14 @@
                             this.exposures = data.dose_body
                             this.labels = data.month
 
-                            // 👇 棒グラフを描画
+                            // グラフを描画
                             const ctx = document.getElementById('chart').getContext('2d');
                             this.chart = new Chart(ctx, {
                                 type: 'bar',
                                 data: {
                                     datasets: [{
                                         data: this.exposures,
-                                        label: '被ばく線量',
+                                        label: '入力データ',
                                     }],
                                     labels: this.labels,
                                 },
@@ -110,11 +119,14 @@
                                     title: {
                                         display: true,
                                         fontSize: 45,
-                                        text: '体部の被ばく線量'
+                                        text: '入力データ'
                                     },
                                 }
                             });
+                        })
+                        .catch(function (error) {
 
+                            console.log(error);
                         });
 
                 },
