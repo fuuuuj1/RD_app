@@ -13,6 +13,12 @@ use App\Http\Controllers\Controller;
 
 class RdController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Exposure::class, 'exposure');
+    }
+
     /**
      * Display a listing of the resource.
      *

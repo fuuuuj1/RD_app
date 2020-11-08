@@ -60,68 +60,87 @@
                         .then(data => this.years = data);
                 },
 
-                getJson(){
-
-                    // 任意の年のデータを取得するためにクエリパラメータの設定
-                    const params = new URLSearchParams();
-                    params.set('year', this.year);
-
-                    // axios
-                    axios
-                    .get('/api/chart', { params })
-                        .then(response => console.log(response.data));
-
-                    // fetchバージョン
-                    fetch('/api/chart/?year' + params)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(function (error) {
-                            console.log(error);
-                    });;
-                },
-
                 getExposures() {
 
-                    // 任意の年の線量データを取得するためにクエリパラメータの設定
-                    const params = new URLSearchParams();
-                    params.set('year', this.year);
-
-
                     // 線量データを取得
-                    fetch('/api/chart/years?' + params)
-                        .then(response => response.json())
-                        .then(data => {
 
-                            console.log(data);
+                    // 接続するurlの指定
+                    const url = '/api/chart/'
+
+                    // axios.get('/api/chart/' + this.year)
+                    axios.get(`${url}${this.year}`)
+                        .then(response => {
+
+                        console.log(response.data)
 
                             if(this.chart) { // チャートが存在していれば初期化
 
                                 this.chart.destroy();
-
-                            }
+                        }
 
                             // 線量データを格納する
-                            this.exposures = data.dose_body
-                            this.labels = data.month
+                            const dose_body = _.map(response.data, 'dose_body');
+                            const dose_neck = _.map(response.data, 'dose_neck');
+                            const labels = _.map(response.data, 'month');
+
+                            // 末尾に 月 を付与する関数
+                            function plusMonth(value) {
+                                return value + '月';
+                            };
+
+                            const plus_labels = labels.map(plusMonth);
+
+                            // グラフの最後に線量限度のbarを表示するために配列に値の追加をする
+                            dose_body.push('20');
+                            dose_neck.push('10');
+                            plus_labels.push('線量限度');
 
                             // グラフを描画
                             const ctx = document.getElementById('chart').getContext('2d');
                             this.chart = new Chart(ctx, {
                                 type: 'bar',
                                 data: {
-                                    datasets: [{
-                                        data: this.exposures,
-                                        label: '入力データ',
-                                    }],
-                                    labels: this.labels,
+                                    datasets: [
+                                    {
+                                        data: dose_body,
+                                        label: '体部線量',
+                                        borderColor : "rgba(67,132,243,0.8)",
+                                        backgroundColor : "rgba(93,181,255,0.5)",
+                                    },
+                                    {
+                                        data: dose_neck,
+                                        label: '頸部線量',
+                                        borderColor : "rgba(254,97,132,0.8)",
+                                        backgroundColor : "rgba(254,97,132,0.5)",
+                                    },
+                                    ],
+                                    labels: plus_labels,
                                 },
                                 options: {
                                     title: {
                                         display: true,
-                                        fontSize: 45,
-                                        text: '入力データ'
+                                        fontSize: 30,
+                                        text: '被ばく線量'
                                     },
-                                }
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                min:0,
+                                                max:20,
+                                                stepSize:2,
+                                                // 縦軸の数値にmSvを表示させる
+                                                callback: function(value, index, values) {
+                                                    return value + 'mSv ';
+                                                }
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                padding: 10
+                                            }
+                                        }]
+                                    },
+                                },
                             });
                         })
                         .catch(function (error) {
@@ -133,7 +152,6 @@
             },
             mounted() {
                 this.getYears();
-                this.getJson();
                 this.getExposures();
             }
         });

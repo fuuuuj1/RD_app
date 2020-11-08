@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Exposure;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\http\Resources\Exposure as ExposureResource;
 use App\Http\Resources\ExposureResource as ResourcesExposureResource;
 
@@ -77,7 +79,7 @@ class ChartsetController extends Controller
 
     }
 
-    //  指定された計測年の記録を取得する
+    //  指定された計測年の線量を取得する
     public function getExposureByYear(Request $request)
     {
         // ユーザーidの取得
@@ -86,8 +88,8 @@ class ChartsetController extends Controller
         // 取得したい計測年の取得
         $year = $request->year;
 
-        // 指定した年の線量記録の取得
-        $exposures = \App\Exposure::select('dose_body', 'month')
+        // 線量記録の取得
+        $exposures = \App\Exposure::select('dose_body', 'dose_neck', 'month')
         ->where('user_id', $id)
         ->where('year', $year)
         ->orderBy('month', 'asc')
@@ -97,4 +99,11 @@ class ChartsetController extends Controller
         // return new ExposureResource($exposures);
 
     }
+
+    // 通信テスト
+    public function getExposureByYearTest($year)
+    {
+        \Log::info($year);
+    }
+
 }
