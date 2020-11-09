@@ -10,23 +10,25 @@
 <div class="container p-3">
 
     <div class="row">
-
-        <div class="col-md6">
-
-            {{-- chartjsでグラフを描画する --}}
-            <canvas id="chart" width="400" height="400"></canvas>
-
-
+        <div class="col-md-2" style="margin: 0 auto">
             {{-- 年を選択するためのセレクトボックス --}}
             <div class="form-group">
-
-
                     <label>計測年</label>
                         <select class="form-control" v-model="year" @change="getExposures">
                             <option v-for="year in years" :value="year">@{{ year }} 年</option>
                         </select>
-
             </div>
+        </div>
+    </div>
+
+    <div class="row chart-wrapper">
+
+
+        <div class="col-md6　chart-content" style="margin: 30px auto">
+
+
+            {{-- chartjsでグラフを描画する --}}
+            <canvas id="chart" width="600" height="500"></canvas>
 
         </div>
 
