@@ -97,6 +97,12 @@
                             dose_neck.push('10');
                             plus_labels.push('線量限度');
 
+                            // グラフのカラーを定義
+                            const borderColorBule = "rgba(67,132,243,0.8)";
+                            const borderColorRed = "rgba(254,97,132,0.8)";
+                            const chartColorBule = "rgba(93,181,255,0.5)";
+                            const chartColorRed = "rgba(254,97,132,0.5)";
+
                             // グラフを描画
                             const ctx = document.getElementById('chart').getContext('2d');
                             this.chart = new Chart(ctx, {
@@ -106,14 +112,14 @@
                                     {
                                         data: dose_body,
                                         label: '体部線量',
-                                        borderColor : "rgba(67,132,243,0.8)",
-                                        backgroundColor : "rgba(93,181,255,0.5)",
+                                        borderColor : borderColorBule,
+                                        backgroundColor : chartColorBule,
                                     },
                                     {
                                         data: dose_neck,
                                         label: '頸部線量',
-                                        borderColor : "rgba(254,97,132,0.8)",
-                                        backgroundColor : "rgba(254,97,132,0.5)",
+                                        borderColor : borderColorRed,
+                                        backgroundColor : chartColorRed,
                                     },
                                     ],
                                     labels: plus_labels,
@@ -141,6 +147,17 @@
                                                 padding: 10
                                             }
                                         }]
+                                    },
+                                    tooltips:{
+                                        callbacks:{
+                                            label(tooltipItem, data){
+                                                const datasetIndex = tooltipItem.datasetIndex;
+                                                const index = tooltipItem.index;
+                                                const exposure = data.datasets[datasetIndex].data[index];
+                                                const position = data.datasets[datasetIndex].label;
+                                                return position + exposure + 'mSv';
+                                            }
+                                        }
                                     },
                                 },
                             });
