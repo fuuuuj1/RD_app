@@ -33,7 +33,7 @@
             <h2 class="card-title h2">何をするためのサイト？</h2>
 
             {{-- Sub title --}}
-            <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理するためのサイト
+            <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理します
             </h5>
 
             <!-- Grid row -->
@@ -81,7 +81,7 @@
                   </div>
 
                   <div class="text">
-                    <small>まずはユーザー登録 or ログインを</small>
+                    <small>まずはユーザー登録 or ログイン</small>
                     <p>①サイトにログイン</p>
                   </div>
                 </a>

@@ -525,6 +525,16 @@ h2 {
     text-align: center;
     vertical-align: middle;
 }
+
+/* グラフページのレイアウト */
+.chart-wrapper {
+    position: relative;
+}
+
+.chart-content {
+    position: absolute;
+    margin: 20px auto !important;
+}
 /* -------------------------------------------------------------------------------------------- */
 /* タブレットサイズにnavbar対応のための記述 */
 @media screen and (max-width: 992px) {
