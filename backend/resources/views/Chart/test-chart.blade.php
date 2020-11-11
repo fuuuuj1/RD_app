@@ -157,7 +157,7 @@
                                                 const position = data.datasets[datasetIndex].label;
                                                 return position + exposure + 'mSv';
                                             }
-                                        }
+                                        },
                                     },
                                 },
                             });
