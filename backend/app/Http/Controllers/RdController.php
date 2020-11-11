@@ -70,8 +70,12 @@ class RdController extends Controller
             // 重複カウントがなければ、線量データをテーブルへ記録
             $exposure->save();
 
-            // リダイレクト先は後ほど記録のサンクスページに変更する チェックボックスの値があればリダイレクト先は再びrecordに
-            return redirect()->route('RD.index');
+            // checkboxが選択されていれば再び記録画面へ
+            if ($request->has('re_record')) {
+                return redirect()->route('RD.record')->with('success', '入力した' . $check_year . '年' . $check_month . '月の線量記録は正常に登録されました');
+            } else {
+                return view('Chart.chart');
+            }
         }
     }
 

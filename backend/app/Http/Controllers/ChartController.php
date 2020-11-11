@@ -16,6 +16,6 @@ class ChartController extends Controller
      */
     public function index()
     {
-        return view('Chart.test-chart');
+        return view('Chart.chart');
     }
 }

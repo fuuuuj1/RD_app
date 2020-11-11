@@ -82,11 +82,11 @@
                 </li>
                 @endguest
 
-                @auth
+                {{-- @auth
                 <li class="nav-item nav-contact nav-right">
                     <a class="nav-link" href="#">コンタクト</a>
                 </li>
-                @endauth
+                @endauth --}}
                 {{-- </div> --}}
 
                 </ul>

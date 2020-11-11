@@ -4,7 +4,7 @@
 
 @section('content')
 
- @include('new-nav')
+ @include('nav')
 
 <div class="page-body">
 
