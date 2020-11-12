@@ -25,19 +25,19 @@
 <body>
 
 
-    {{-- モーダル --}}
-    <div id="layer_board_area" tabindex="-1" class="modal">
+    {{-- お知らせモーダル --}}
+    <div id="layer_board_area" tabindex="-1" class="modal_notice">
         <div class="modal-sandbox"></div>
 
         <div class="modal-box">
 
-            <div class="modal-header">
-                <h1>ご確認をお願いします</h1>
+            <div class="modal-header_notice">
                 <div class="mdl_btn_close">&#10006;</div>
+                <h1>ご確認をお願いします</h1>
             </div>
 
-            <div class="modal-body">
-                <p>このサイトは<span style="font-size: 2rem">職業被ばく</span>を管理するためのサイトになります<br>
+            <div class="modal-body_notice">
+                <p>このサイトは<span style="font-size: 1.2rem">職業被ばく</span>を管理するためのサイトになります<br>
                 業務の関係上、止むを得ず被ばくをする<span style="font-weight: bold">医療従事者向け</span>の被ばく線量の管理サイトです</p>
 
                 <p><br>レントゲンやCTなどの検査における<span style="font-weight: bold">医療被ばく</span>を管理するためのサイトではないことをご承知ください</p>
@@ -53,7 +53,23 @@
         </div>
 
     </div>
-    {{-- モーダル終了 --}}
+    {{-- お知らせモーダル終了 --}}
+
+    {{-- 参考サイト、書籍のモーダル --}}
+    <div class="modal_wrap">
+        <input id="trigger" type="checkbox">
+            <div class="modal_overlay">
+                <label for="trigger" class="modal_trigger"></label>
+                    <div class="modal_content_ref">
+                        <label for="trigger" class="close_button_ref">✖️</label>
+                            <h2>Modal Content</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    </div>
+            </div>
+    </div>
+    {{-- 参考サイト、書籍のモーダル終了 --}}
+
+
 
     <div id="app2">
         @yield('content')

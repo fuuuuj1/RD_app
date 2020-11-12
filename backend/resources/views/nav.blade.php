@@ -31,7 +31,7 @@
                         </li>
 
                         <li class="nav-item nav-center">
-                            <a class="nav-link" href="#">参考サイト</a>
+                            <label class="nav-link" for="trigger" style="margin-bottom: 0 !important">参考サイト</label>
                         </li>
                 @endguest
 
@@ -49,7 +49,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">参考サイト</a>
+                            <label class="nav-link" for="trigger">参考サイト</label>
                         </li>
 
                 @endauth
@@ -79,7 +79,7 @@
                 @guest
                     <li class="nav-item nav-login nav-right">
                         <button class="layer_board_btn nav-link" style="background-color:transparent !important;cursor:pointer; border"> お知らせ</button>
-                </li>
+                    </li>
                 @endguest
 
                 {{-- @auth

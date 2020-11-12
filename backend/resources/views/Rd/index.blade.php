@@ -238,13 +238,13 @@
 
         <div class="right">
           <div class="reference">
-            <a href="">
+            <label for="trigger">
               <div class="ref-bg"></div>
               <div class="inner">
                 <strong>Reference</strong>
                 <p>参考となるサイトや書籍の紹介</p>
               </div>
-            </a>
+            </label>
           </div>
         </div>
       </div>

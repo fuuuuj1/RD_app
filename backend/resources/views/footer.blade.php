@@ -93,7 +93,7 @@
             <a href="#!">コンタクト</a>
           </li> --}}
           <li>
-            <a href="#!">参考サイト</a>
+            <label for="trigger">参考サイト</label>
         </ul>
 
       </div>
