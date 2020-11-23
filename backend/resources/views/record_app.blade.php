@@ -27,6 +27,8 @@
 
   <body>
 
+    @include('ref_modal')
+
     @yield('content')
 
     {{-- jQury --}}

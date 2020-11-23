@@ -15,12 +15,9 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                {{-- ログイン状態により表示項目を変更する --}}
 
                 <ul class="navbar-nav nav-center">
 
-
-                {{-- <div class="nav-center-content"> --}}
                 @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('register')}}">ユーザー登録</a>

@@ -609,7 +609,7 @@ h2 {
     align-self: center;
     width: 60%;
     max-width: 800px;
-    padding: 30px 30px 15px;
+    /* padding: 30px 30px 15px; */
     box-sizing: border-box;
     background: #fff;
     line-height: 1.4em;
@@ -633,6 +633,40 @@ h2 {
 
 .modal_wrap input:checked ~ .modal_overlay .modal_content_ref {
     transform: scale(1);
+}
+
+/* refモーダルのスタイリング */
+.ref_title {
+    min-width: 100%;
+    padding: 20px 40px;
+    color: #ffffff;
+}
+.ref_body {
+    padding: 40px 40px;
+}
+.ref_footer {
+    padding: 10px 30px;
+    text-align: center;
+}
+.square_btn {
+    display: block;
+    position: relative;
+    width: 160px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 2px solid #111;
+    border-radius: 2px;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #111;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.15s;
+}
+.square_btn:hover {
+    background: #111;
+    color: #fff;
 }
 /* -------------------------------------------------------------------------------------------- */
 /*  */

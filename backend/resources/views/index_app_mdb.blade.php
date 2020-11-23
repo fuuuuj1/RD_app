@@ -37,7 +37,7 @@
             </div>
 
             <div class="modal-body_notice">
-                <p>このサイトは<span style="font-size: 1.2rem">職業被ばく</span>を管理するためのサイトになります<br>
+                <p>このサイトは<span style="font-size: 1.2rem; font-weight:bold">職業被ばく</span>を管理するためのサイトになります<br>
                 業務の関係上、止むを得ず被ばくをする<span style="font-weight: bold">医療従事者向け</span>の被ばく線量の管理サイトです</p>
 
                 <p><br>レントゲンやCTなどの検査における<span style="font-weight: bold">医療被ばく</span>を管理するためのサイトではないことをご承知ください</p>
@@ -55,21 +55,7 @@
     </div>
     {{-- お知らせモーダル終了 --}}
 
-    {{-- 参考サイト、書籍のモーダル --}}
-    <div class="modal_wrap">
-        <input id="trigger" type="checkbox">
-            <div class="modal_overlay">
-                <label for="trigger" class="modal_trigger"></label>
-                    <div class="modal_content_ref">
-                        <label for="trigger" class="close_button_ref">✖️</label>
-                            <h2>Modal Content</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    </div>
-            </div>
-    </div>
-    {{-- 参考サイト、書籍のモーダル終了 --}}
-
-
+    @include('ref_modal')
 
     <div id="app2">
         @yield('content')
