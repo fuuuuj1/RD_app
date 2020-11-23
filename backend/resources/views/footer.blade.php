@@ -51,9 +51,9 @@
           <li>
             <a href="{{route('password.request')}}">パスワードの再設定</a>
           </li>
-          <li>
+          {{-- <li>
             <a href="#!">ユーザー情報の変更</a>
-          </li>
+          </li> --}}
         </ul>
 
       </div>
@@ -89,11 +89,11 @@
         <!-- Links -->
 
         <ul class="list-unstyled footer-link">
-          <li>
+          {{-- <li>
             <a href="#!">コンタクト</a>
-          </li>
+          </li> --}}
           <li>
-            <a href="#!">参考サイト</a>
+            <label for="trigger">参考サイト</label>
         </ul>
 
       </div>

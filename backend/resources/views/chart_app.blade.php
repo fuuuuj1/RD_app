@@ -20,7 +20,9 @@
 
 <body>
 
-        @yield('content')
+    @include('ref_modal')
+
+    @yield('content')
 
   {{-- 作成したjsファイルの読み込み --}}
   <script src="{{ mix('js/app.js') }}"></script>

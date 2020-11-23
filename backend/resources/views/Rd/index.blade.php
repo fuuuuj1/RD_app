@@ -4,7 +4,7 @@
 
 @section('content')
 
-    @include('new-nav')
+    @include('nav')
 
 <div id="all">
       <!-- コンテンツの開始 articleタグで独立させる -->
@@ -223,28 +223,28 @@
       <div id="link-block">
         <div class="left">
           <div class="record">
-            <a href="">
+            <a href="{{route('RD.record')}}">
               <strong>Record</strong>
               <small>線量の記録をする</small>
             </a>
           </div>
           <div class="contact">
-            <a href="">
-              <strong>Contact</strong>
-              <small>お問い合わせ</small>
+            <a href="{{route('Chart.index')}}">
+              <strong>Chart</strong>
+              <small>線量記録をグラフ表示</small>
             </a>
           </div>
         </div>
 
         <div class="right">
           <div class="reference">
-            <a href="">
+            <label for="trigger">
               <div class="ref-bg"></div>
               <div class="inner">
                 <strong>Reference</strong>
                 <p>参考となるサイトや書籍の紹介</p>
               </div>
-            </a>
+            </label>
           </div>
         </div>
       </div>

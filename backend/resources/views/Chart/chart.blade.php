@@ -2,17 +2,17 @@
 
 @section('title', '線量グラフ')
 
- @include('new-nav')
+ @include('nav')
 
 @section('content')
 
 <div id="app_chart">
+<spinner v-show="isLoading" style="margin:300px auto"></spinner>
 <div class="container p-3">
-
     <div class="row">
         <div class="col-md-2" style="margin: 0 auto">
             {{-- 年を選択するためのセレクトボックス --}}
-            <div class="form-group">
+            <div class="form-group" v-show='selectBox'>
                     <label>計測年</label>
                         <select class="form-control" v-model="year" @change="getExposures">
                             <option v-for="year in years" :value="year">@{{ year }} 年</option>
@@ -34,23 +34,30 @@
 
     </div>
 
+
 </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-simple-spinner@1.2.8/dist/vue-simple-spinner.min.js"></script>
 
     <script>
 
+        const Spinner = window.VueSimpleSpinner;
         const app_chart = new Vue({
             el: '#app_chart',
             data: {
-                exposures: [], //線量データを格納する
                 year: '{{ date('Y') }}',
                 years: [],
                 labels: [],
-                chart: null
+                chart: null,
+                isLoading: true,
+                selectBox: false,
+            },
+            components: {
+                Spinner
             },
             methods: {
 
@@ -64,8 +71,8 @@
 
                 getExposures() {
 
-                    // 線量データを取得
-
+                    //ローディングの制御
+                    target =this
                     // 接続するurlの指定
                     const url = '/api/chart/'
 
@@ -161,6 +168,9 @@
                                     },
                                 },
                             });
+                            // チャートのロードが終了したらローディングオフ,セレクトボックスは表示
+                            target.isLoading = false
+                            target.selectBox = true
                         })
                         .catch(function (error) {
 

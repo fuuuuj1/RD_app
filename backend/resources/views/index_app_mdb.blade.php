@@ -25,22 +25,22 @@
 <body>
 
 
-    {{-- モーダル --}}
-    <div id="layer_board_area" tabindex="-1" class="modal">
+    {{-- お知らせモーダル --}}
+    <div id="layer_board_area" tabindex="-1" class="modal_notice">
         <div class="modal-sandbox"></div>
 
         <div class="modal-box">
 
-            <div class="modal-header">
-                <h1>ご確認をお願いします</h1>
+            <div class="modal-header_notice">
                 <div class="mdl_btn_close">&#10006;</div>
+                <h1>ご確認をお願いします</h1>
             </div>
 
-            <div class="modal-body">
-                <p>このサイトは<strong>職業被ばく</strong>を管理するためのサイトになります<br>
-                業務の関係上、止むを得ず被ばくをする医療従事者向けの被ばく線量の管理サイトです</p>
+            <div class="modal-body_notice">
+                <p>このサイトは<span style="font-size: 1.2rem; font-weight:bold">職業被ばく</span>を管理するためのサイトになります<br>
+                業務の関係上、止むを得ず被ばくをする<span style="font-weight: bold">医療従事者向け</span>の被ばく線量の管理サイトです</p>
 
-                <p><br>レントゲンやCTなどの検査における医療被ばくを管理するためのサイトではないことをご承知ください</p>
+                <p><br>レントゲンやCTなどの検査における<span style="font-weight: bold">医療被ばく</span>を管理するためのサイトではないことをご承知ください</p>
 
                 <hr>
                 <p>職業被ばく・・・作業者が自らの仕事の結果として被る被ばくのこと<br></p>
@@ -53,7 +53,9 @@
         </div>
 
     </div>
-    {{-- モーダル終了 --}}
+    {{-- お知らせモーダル終了 --}}
+
+    @include('ref_modal')
 
     <div id="app2">
         @yield('content')

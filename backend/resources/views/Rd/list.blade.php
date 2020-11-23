@@ -4,7 +4,7 @@
 
 @section('content')
 
- @include('new-nav')
+ @include('nav')
 
 <div class="page-body">
 
@@ -20,10 +20,6 @@
         {{-- cardの開始 --}}
         <div class="card mb-4">
 
-            {{-- テスト --}}
-            {{-- @php
-                var_dump($exposure);
-            @endphp --}}
 
             {{-- Headerで登録している年、月の表示 --}}
             <div class="card-header bg-transparent border-danger">
@@ -155,19 +151,8 @@
                 <span class="list-footer-comment" data-toggle="modal" data-target="{{"#centralModalComment". "$exposure->year". "$exposure->month"}}">memo<i class="fa fa-angle-down"></i></span>
                 @endif
 
-                    {{-- vueで実装できそうなら利用 今回はちと厳しそう --}}
-                    {{-- <span class="list-footer-comment" data-toggle="collapse" data-target="{{"#collapse". "$exposure->year". "$exposure->month"}}" aria-expanded="false" aria-controls="{{"collapse". "$exposure->year". "$exposure->month"}}">
-                        <list-memo></list-memo>
-                        <i class="fa fa-angle-down" aria-hidden="true"></i></span> --}}
 
             </div>
-
-
-            {{-- アコーディオン部分 --}}
-
-                {{-- <div class="collapse" id="{{"collapse". "$exposure->year". "$exposure->month"}}">
-                    <list-comment></list-comment>
-                </div> --}}
 
             {{-- コメント入力画面はモーダルで実装 --}}
 

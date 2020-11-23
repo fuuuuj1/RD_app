@@ -15,12 +15,9 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                {{-- ログイン状態により表示項目を変更する --}}
 
                 <ul class="navbar-nav nav-center">
 
-
-                {{-- <div class="nav-center-content"> --}}
                 @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('register')}}">ユーザー登録</a>
@@ -31,7 +28,7 @@
                         </li>
 
                         <li class="nav-item nav-center">
-                            <a class="nav-link" href="#">参考サイト</a>
+                            <label class="nav-link" for="trigger" style="margin-bottom: 0 !important">参考サイト</label>
                         </li>
                 @endguest
 
@@ -49,7 +46,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">参考サイト</a>
+                            <label class="nav-link" for="trigger">参考サイト</label>
                         </li>
 
                 @endauth
@@ -79,14 +76,14 @@
                 @guest
                     <li class="nav-item nav-login nav-right">
                         <button class="layer_board_btn nav-link" style="background-color:transparent !important;cursor:pointer; border"> お知らせ</button>
-                </li>
+                    </li>
                 @endguest
 
-                @auth
+                {{-- @auth
                 <li class="nav-item nav-contact nav-right">
                     <a class="nav-link" href="#">コンタクト</a>
                 </li>
-                @endauth
+                @endauth --}}
                 {{-- </div> --}}
 
                 </ul>

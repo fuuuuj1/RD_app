@@ -20,9 +20,11 @@
 
 <body>
 
-            <div id="app_memo">
-                @yield('content')
-            </div>
+    @include('ref_modal')
+
+<div id="app_memo">
+    @yield('content')
+</div>
 
   {{-- 作成したjsファイルの読み込み --}}
   <script src="{{ mix('js/app.js') }}" defer></script>

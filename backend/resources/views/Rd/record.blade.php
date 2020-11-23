@@ -1,8 +1,10 @@
-@extends('app')
+@extends('record_app')
 
 @section('title', '線量の記録')
 
 @section('content')
+
+@include('nav')
 
 <div class="record-content">
 
@@ -30,6 +32,14 @@
                 <div class="card-text text-lest alert alert-danger">
                     <ul class="mb-0">
                         <li style="list-style: none">{{ session('message') }}</li>
+                    </ul>
+                </div>
+            @endif
+            {{-- 再度記録のチェックがされた際に記録成功メッセージを表示する --}}
+            @if (session('success'))
+                <div class="card-text text-lest alert alert-success">
+                    <ul class="mb-0">
+                        <li style="list-style: none">{{ session('success') }}</li>
                     </ul>
                 </div>
             @endif
@@ -115,11 +125,11 @@
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="formCheck-1" name="Re-record">
-                    <label class="form-check-label" for="formCheck-1" style="font-weight: normal;padding-top: 1px;">続けて線量の記録を行う</label>
+                    <input class="form-check-input" type="checkbox" name="re_record">
+                    <label class="form-check-label" style="font-weight: normal;padding-top: 1px;">続けて線量の記録を行う</label>
                 </div>
 
-                <button class="btn btn-light submit-button" type="submit">登録</button>
+                <button class="btn btn-light submit-button" type="submit" style="background: #6caee0 !important;">登録</button>
 
             </form>
 
