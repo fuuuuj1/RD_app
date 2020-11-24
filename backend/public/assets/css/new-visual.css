@@ -275,6 +275,11 @@ h2 {
     line-height: 1;
 }
 
+/* card */
+.card .card-body .card-text {
+    text-align: left;
+}
+
 /* link block */
 #link-block {
     display: flex;

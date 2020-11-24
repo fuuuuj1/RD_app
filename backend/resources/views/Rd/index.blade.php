@@ -42,7 +42,8 @@
                 <!-- Grid column -->
                 <div class="col-xl-7 pb-2">
 
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga aliquid dolorem ea distinctio exercitationem delectus qui, quas eum architecto, amet quasi accusantium, fugit consequatur ducimus obcaecati numquam molestias hic itaque accusantium doloremque laudantium, totam rem aperiam.</p>
+                <p class="card-text">記録していただいた毎月の被ばく線量をグラフとして表示します</p>
+                <p class="card-text">グラフには年間の線量限度も表示されるので、自身の線量がどの程度なのかを直感的に把握することができます</p>
 
                 </div>
                 <!-- Grid column -->
@@ -56,7 +57,7 @@
 
                     <div class="col-xl-7 pb-2">
 
-                    <h5 class="card-text" style="text-align: center">以下の3ステップにより、あなたの被ばく線量を直感的に把握することができます。</h5>
+                    <h5 class="card-text" style="text-align: center">以下の3ステップで、あなたの被ばく線量を把握しましょう。</h5>
 
                     </div>
 
@@ -158,10 +159,9 @@
                 <div class="card-body">
 
                   <!--Title-->
-                  <h4 class="card-title">Card title</h4>
+                  <h4 class="card-title">被ばく線量の把握</h4>
                   <!--Text-->
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+                  <p class="card-text">線量計を着用しているにも関わらず、自身の線量を把握していない方があまりにも多い。毎月の測定結果に関心を持つこと、線量計の正しい着用場所を知って欲しい。</p>
 
                 </div>
 
@@ -180,10 +180,9 @@
                 <div class="card-body">
 
                   <!--Title-->
-                  <h4 class="card-title">Card title</h4>
+                  <h4 class="card-title">年間の線量限度を知る</h4>
                   <!--Text-->
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+                  <p class="card-text">国により、年間の業務上における線量限度が定めたれています。自身の被ばく線量がどの程度なのかを線量限度から把握しましょう。</p>
 
                 </div>
 
@@ -202,10 +201,9 @@
                 <div class="card-body">
 
                   <!--Title-->
-                  <h4 class="card-title">Card title</h4>
+                  <h4 class="card-title">放射線との関わり方</h4>
                   <!--Text-->
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+                  <p class="card-text">放射線は目に見えないため、知識がなければ恐ろしく感じます。当サイトでは放射線について知るためのサイトや書籍を紹介しているので、参考にしてください</p>
 
                 </div>
 
