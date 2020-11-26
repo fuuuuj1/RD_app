@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Exposure extends Model
 {
     /**
+     * モデルと関連しているテーブル
+     *
+     * @var string
+     */
+    protected $table = 'exposures';
+
+    /**
      * 線量のユーザー情報を取得
      */
     public function user(): BelongsTo
