@@ -13,9 +13,9 @@ class PositionsTableSeeder extends Seeder
     {
         // positionテーブルの初期値を定義
         $positon_name1 = '胸部';
-        $positon_name2 = '体部';
+        $positon_name2 = '腹部';
         $positon_name3 = '頸部 + 胸部';
-        $positon_name4 = '頸部 + 体部';
+        $positon_name4 = '頸部 + 腹部';
 
         $position_table_value = [
             ['position_name' => $positon_name1],
