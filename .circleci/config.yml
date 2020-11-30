@@ -6,13 +6,12 @@ jobs:
     steps:
       - checkout
       - run: sudo composer self-update --1
+      - working_directory: backend
+      - run: composer install -n --prefer-dist
+      - run: npm ci
       - run:
           working_directory: backend
-          command: composer install -n --prefer-dist
-      - run:
-          working_directory: backend
-          command: npm ci
-      - run: npm run dev
+          command: npm run dev
       - run:
           name: php test
           command: vendor/bin/phpunit
