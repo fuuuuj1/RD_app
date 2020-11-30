@@ -9,9 +9,7 @@ jobs:
       - working_directory: backend
       - run: composer install -n --prefer-dist
       - run: npm ci
-      - run:
-          working_directory: backend
-          command: npm run dev
+      - run: npm run dev
       - run:
           name: php test
           command: vendor/bin/phpunit
