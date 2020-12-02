@@ -70,5 +70,5 @@ jobs:
           name: php test
           working_directory: backend
           command: |
-            composer require doctrine/dbal
+            composer require "doctrine/dbal:2.12"
             vendor/bin/phpunit
