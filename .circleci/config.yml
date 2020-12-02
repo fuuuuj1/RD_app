@@ -16,9 +16,15 @@ jobs:
           key: composer-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
-      - run: npm ci
-      - run: npm run dev
-      - run: composer require doctrine/dbal
+      - run:
+          working_directory: backend
+          command: npm ci
+      - run:
+          working_directory: backend
+          command: npm run dev
+      - run:
+          working_directory: backend
+          command: composer require doctrine/dbal
       - run:
           name: php test
           working_directory: backend
