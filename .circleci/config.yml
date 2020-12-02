@@ -1,19 +1,18 @@
 version: 2.1
 jobs:
   build:
-    working_directory: backend
     docker:
       - image: circleci/php:7.4-node-browsers
     steps:
       - checkout
       - run: sudo composer self-update --1
       - restore_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "backend/composer.lock" }}
       - run:
           working_directory: backend
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
       - run:
@@ -27,4 +26,5 @@ jobs:
           command: composer require doctrine/dbal
       - run:
           name: php test
+          working_directory: backend
           command: vendor/bin/phpunit
