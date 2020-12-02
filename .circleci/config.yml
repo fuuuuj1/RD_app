@@ -2,11 +2,42 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/backend
+
     docker:
       - image: circleci/php:7.4-node-browsers
+      - image: circleci/mysql:5.7-ram
+        environment:
+          MYSQL_DATABASE: rd_data
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+
+    environment:
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: rd_data
+      DB_USERNAME: user
+      DB_PASSWORD: password
+
     steps:
       - checkout
+
+      - run:
+          name: dockerize のインストール
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+
+      - run:
+          name: db の待機と準備
+          command: |
+            sudo apt-get update
+            sudo docker-php-ext-install pdo_mysql
+            dockerize -wait tcp://localhost:3306 -timeout 1m
+
       - run: sudo composer self-update --1
+
       - restore_cache:
           key: composer-v1-{{ checksum "backend/composer.lock" }}
       - run:
@@ -16,6 +47,7 @@ jobs:
           key: composer-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
+
       - restore_cache:
           key: npm-v1-{{ checksum "backend/package-lock.json" }}
       - run:
@@ -29,12 +61,15 @@ jobs:
           key: npm-v1-{{ checksum "backend/package-lock.json" }}
           paths:
             - node_modules
+
       - run:
           working_directory: backend
           command: npm run dev
+
       - run:
           working_directory: backend
           command: composer require doctrine/dbal
+
       - run:
           name: php test
           working_directory: backend
