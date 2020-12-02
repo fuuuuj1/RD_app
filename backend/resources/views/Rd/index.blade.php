@@ -74,7 +74,7 @@
           <section id="link-bnr" class="section-base">
             <ul>
               <li>
-                <a href="">
+                <a href="{{route('login')}}">
                   <div class="thumb">
                     <img
                         src="{{asset('assets/img/regs-resize.jpg')}}"
@@ -89,7 +89,7 @@
               </li>
 
               <li>
-                <a href="">
+                <a href="{{route('RD.record')}}">
                   <div class="thumb">
                     <img src="{{asset('assets/img/edit-res.jpg')}}" alt="ボード画像" />
                   </div>
@@ -102,7 +102,7 @@
               </li>
 
               <li>
-                <a href="">
+                <a href="{{route('Chart.index')}}">
                   <div class="thumb">
                     <img  src="{{asset('assets/img/chart-res.jpg')}}" alt="チャート画像" />
                   </div>
