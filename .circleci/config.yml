@@ -66,9 +66,15 @@ jobs:
           working_directory: backend
           command: npm run dev
 
+      - restore_cache:
+          key: dbal-v1-{{ checksum "backend/composer.lock" }}
       - run:
           working_directory: backend
           command: composer require "doctrine/dbal:2.12"
+      - save_cache:
+          key: dbal-v1-{{ checksum "backend/composer.lock" }}
+          paths:
+            - vendor
 
       - run:
           name: php test
