@@ -22,10 +22,6 @@ Route::resource('/RD', 'RdController')
 ->except(['index', 'show','destroy'])
 ->middleware('auth');
 
-// ユーザーページの表示ルートの設定
-Route::get('/userpage', 'RdController@userpage')->name('RD.userpage')
-->middleware('auth');
-
 // 線量記録をリスト形式で表示する
 Route::get('list', 'RdController@list')
 ->name('RD.list')
@@ -46,9 +42,3 @@ Route::patch('list/{exposure}', 'RdController@update')
 Route::get('chart', 'ChartController@index')
 ->name('Chart.index')
 ->middleware('auth');
-
-// ajaxで線量データの取得
-// Route::get('ajax/chart/', 'Ajax\ChartController@index');
-
-// 年データを取得
-// Route::get('ajax/chart/years', 'Ajax\ChartController@years');

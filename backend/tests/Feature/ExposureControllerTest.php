@@ -11,6 +11,14 @@ class ExposureControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function testIndex()
+    {
+        $response = $this->get(route('RD.index'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('Rd.index');
+    }
+
     public function testGuestList()
     {
         $response = $this->get(route('RD.list'));
