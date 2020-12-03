@@ -67,8 +67,10 @@ jobs:
           command: npm run dev
 
       - run:
+          working_directory: backend
+          command: composer require "doctrine/dbal:2.12"
+
+      - run:
           name: php test
           working_directory: backend
-          command: |
-            composer require "doctrine/dbal:2.12"
-            vendor/bin/phpunit
+          command: vendor/bin/phpunit
