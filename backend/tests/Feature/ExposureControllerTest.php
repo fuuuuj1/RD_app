@@ -41,17 +41,17 @@ class ExposureControllerTest extends TestCase
             ->assertViewIs('Rd.index');
     }
 
-    // public function testAuthList()
-    // {
-    //     // 初期データをテーブルに追加 job,positionデータなど
-    //     $this->seed();
+    public function testAuthList()
+    {
+        // 初期データをテーブルに追加 job,positionデータなど
+        // $this->seed();
 
-    //     $user = factory(User::class)->create();
+        $user = factory(User::class)->create();
 
-    //     $response = $this->actingAs($user)
-    //         ->get(route('RD.list'));
+        $response = $this->actingAs($user)
+            ->get(route('RD.list'));
 
-    //     $response->assertStatus(200)
-    //         ->assertViewIs('RD.list');
-    // }
+        $response->assertStatus(200)
+            ->assertViewIs('RD.list');
+    }
 }
