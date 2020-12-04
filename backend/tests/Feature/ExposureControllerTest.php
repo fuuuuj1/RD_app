@@ -27,31 +27,31 @@ class ExposureControllerTest extends TestCase
 
     }
 
-    // public function testAuthIndex()
+    public function testAuthIndex()
+    {
+        // 初期データをテーブルに追加 job,positionデータなど
+        // $this->seed();
+
+        $auth_user = factory(User::class)->create();
+
+        $response = $this->actingAs($auth_user)
+            ->get(route('RD.index'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('Rd.index');
+    }
+
+    // public function testAuthList()
     // {
     //     // 初期データをテーブルに追加 job,positionデータなど
     //     $this->seed();
 
-    //     $auth_user = factory(User::class)->create();
+    //     $user = factory(User::class)->create();
 
-    //     $response = $this->actingAs($auth_user)
-    //         ->get(route('RD.index'));
+    //     $response = $this->actingAs($user)
+    //         ->get(route('RD.list'));
 
     //     $response->assertStatus(200)
-    //         ->assertViewIs('Rd.index');
+    //         ->assertViewIs('RD.list');
     // }
-
-    public function testAuthList()
-    {
-        // 初期データをテーブルに追加 job,positionデータなど
-        $this->seed();
-
-        $user = factory(User::class)->create();
-
-        $response = $this->actingAs($user)
-            ->get(route('RD.list'));
-
-        $response->assertStatus(200)
-            ->assertViewIs('RD.list');
-    }
 }

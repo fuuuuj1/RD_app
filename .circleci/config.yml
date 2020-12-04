@@ -73,13 +73,17 @@ jobs:
           paths:
             - vendor
 
-      - run:
-          working_directory: backend
-          command: php artisan migrate
-
+      # seedingの準備
       - run:
           working_directory: backend
           command: composer dump-autoload
+
+      # run seeding
+      - run:
+          working_directory: backend
+          command: |
+            php artisan migrate
+            php artisan db:seed
 
       - run:
           name: php test
