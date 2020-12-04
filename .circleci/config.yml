@@ -13,6 +13,7 @@ jobs:
     environment:
       - DB_CONNECTION: circle_testing
       - TZ: "Asia/Tokyo"
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
     working_directory: ~/backend
 
@@ -71,6 +72,10 @@ jobs:
           key: dbal-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
+
+      - run:
+          working_directory: backend
+          command: php artisan migrate
 
       - run:
           name: php test
