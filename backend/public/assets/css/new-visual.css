@@ -274,6 +274,9 @@ h2 {
     letter-spacing: 3px;
     line-height: 1;
 }
+.text-strong {
+    font-size: 1.2rem;
+}
 
 /* card */
 .card .card-body .card-text {

@@ -10,7 +10,14 @@
                         </div>
                             <div class="ref_body">
                                 <h4>参考サイト</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+                                <p>出典：環境省ホームページ <a href="https://www.env.go.jp/chemi/rhm/r1kisoshiryo/r1kiso-02-05-13.html">身の回りの放射線</a></p>
+
+                                <p>出典：環境省ホームページ <a href="https://www.env.go.jp/chemi/rhm/portal/index.html">放射線による健康影響等に関するポータルサイト</a></p>
+
+                                <p>出典：厚生労働省ホームページ <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/anzen/0000186714_00003.html">眼の水晶体の線量限度の変更 令和3年4月から施工</a></p>
+
+                                <p><a href=""></a></p>
                                 <hr>
                                 <h4>参考書籍</h4>
                                 <p>テキストを入力します。テキストを入力します。テキストを入力します。</p>

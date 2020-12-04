@@ -33,8 +33,8 @@
             <h2 class="card-title h2">何をするためのサイト？</h2>
 
             {{-- Sub title --}}
-            <h5 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理します
-            </h5>
+            <h4 class="indigo-text my-4 font-weight-bold">放射線を扱う業務に携わる方々の被ばく線量を管理するサイト
+            </h4>
 
             <!-- Grid row -->
             <div class="row d-flex justify-content-center">
@@ -42,7 +42,7 @@
                 <!-- Grid column -->
                 <div class="col-xl-7 pb-2">
 
-                <p class="card-text">記録していただいた毎月の被ばく線量をグラフとして表示します</p>
+                <p class="card-text text-strong">記録していただいた毎月の被ばく線量をグラフとして表示します</p>
                 <p class="card-text">グラフには年間の線量限度も表示されるので、自身の線量がどの程度なのかを直感的に把握することができます</p>
 
                 </div>
@@ -180,7 +180,7 @@
                 <div class="card-body">
 
                   <!--Title-->
-                  <h4 class="card-title">年間の線量限度を知る</h4>
+                  <h4 class="card-title">年間の線量限度</h4>
                   <!--Text-->
                   <p class="card-text">国により、年間の業務上における線量限度が定めたれています。自身の被ばく線量がどの程度なのかを線量限度から把握しましょう。</p>
 
