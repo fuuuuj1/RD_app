@@ -78,6 +78,10 @@ jobs:
           command: php artisan migrate
 
       - run:
+          working_directory: backend
+          command: composer dump-autoload
+
+      - run:
           name: php test
           working_directory: backend
           command: vendor/bin/phpunit
