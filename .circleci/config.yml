@@ -12,13 +12,7 @@ jobs:
           MYSQL_PASSWORD: password
 
     environment:
-      APP_ENV: testing
-      DB_CONNECTION: mysql
-      DB_HOST: 127.0.0.1
-      DB_PORT: 3306
-      DB_DATABASE: rd_data
-      DB_USERNAME: user
-      DB_PASSWORD: password
+      - DB_CONNECTION: circle_testing
 
     steps:
       - checkout
