@@ -2,6 +2,82 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/php:7.3-node-browsers
+      - image: circleci/php:7.4-node-browsers
+      - image: circleci/mysql:5.7-ram
+        environment:
+          MYSQL_DATABASE: rd_data
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+          TZ: "Asia/Tokyo"
+
+    environment:
+      - DB_CONNECTION: circle_testing
+      - TZ: "Asia/Tokyo"
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+    working_directory: ~/backend
+
     steps:
-      - run: echo "Hello World"
+      - checkout
+
+      - run:
+          name: dockerize のインストール
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+
+      - run:
+          name: db の待機と準備
+          command: |
+            sudo apt-get update
+            sudo docker-php-ext-install pdo_mysql
+            dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run: sudo composer self-update --1
+
+      - restore_cache:
+          key: composer-v1-{{ checksum "backend/composer.lock" }}
+      - run:
+          working_directory: backend
+          command: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "backend/composer.lock" }}
+          paths:
+            - vendor
+
+      - restore_cache:
+          key: npm-v1-{{ checksum "backend/package-lock.json" }}
+      - run:
+          name: npm ci
+          working_directory: backend
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi
+      - save_cache:
+          key: npm-v1-{{ checksum "backend/package-lock.json" }}
+          paths:
+            - node_modules
+
+      - run:
+          working_directory: backend
+          command: npm run dev
+
+      - restore_cache:
+          key: dbal-v1-{{ checksum "backend/composer.lock" }}
+      - run:
+          working_directory: backend
+          command: composer require "doctrine/dbal:2.12"
+      - save_cache:
+          key: dbal-v1-{{ checksum "backend/composer.lock" }}
+          paths:
+            - vendor
+
+      - run:
+          working_directory: backend
+          command: php artisan migrate
+
+      - run:
+          name: php test
+          working_directory: backend
+          command: vendor/bin/phpunit

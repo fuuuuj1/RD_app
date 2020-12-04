@@ -11,6 +11,14 @@ class ExposureControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function testIndex()
+    {
+        $response = $this->get(route('RD.index'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('Rd.index');
+    }
+
     public function testGuestList()
     {
         $response = $this->get(route('RD.list'));
@@ -19,17 +27,17 @@ class ExposureControllerTest extends TestCase
 
     }
 
-    public function testAuthList()
-    {
-        // 初期データをテーブルに追加 job,positionデータなど
-        $this->seed();
+    // public function testAuthList()
+    // {
+    //     // 初期データをテーブルに追加 job,positionデータなど
+    //     $this->seed();
 
-        $user = factory(User::class)->create();
+    //     $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)
-            ->get(route('RD.list'));
+    //     $response = $this->actingAs($user)
+    //         ->get(route('RD.list'));
 
-        $response->assertStatus(200)
-            ->assertViewIs('RD.list');
-    }
+    //     $response->assertStatus(200)
+    //         ->assertViewIs('RD.list');
+    // }
 }
