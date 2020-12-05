@@ -15,8 +15,6 @@ jobs:
       - TZ: "Asia/Tokyo"
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-    working_directory: ~/backend
-
     steps:
       - checkout
 
