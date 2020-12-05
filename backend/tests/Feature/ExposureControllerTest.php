@@ -27,19 +27,19 @@ class ExposureControllerTest extends TestCase
 
     }
 
-    public function testAuthIndex()
-    {
-        // 初期データをテーブルに追加 job,positionデータなど
-        $this->seed();
+    // public function testAuthIndex()
+    // {
+    //     // 初期データをテーブルに追加 job,positionデータなど
+    //     $this->seed();
 
-        $auth_user = factory(User::class)->create();
+    //     $auth_user = factory(User::class)->create();
 
-        $response = $this->actingAs($auth_user)
-            ->get(route('RD.index'));
+    //     $response = $this->actingAs($auth_user)
+    //         ->get(route('RD.index'));
 
-        $response->assertStatus(200)
-            ->assertViewIs('Rd.index');
-    }
+    //     $response->assertStatus(200)
+    //         ->assertViewIs('Rd.index');
+    // }
 
     public function testAuthList()
     {
