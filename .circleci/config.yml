@@ -15,8 +15,6 @@ jobs:
       - TZ: "Asia/Tokyo"
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
-    working_directory: ~/backend
-
     steps:
       - checkout
 
@@ -73,9 +71,17 @@ jobs:
           paths:
             - vendor
 
+      # seedingの準備
       - run:
+          name: シーディングの準備
           working_directory: backend
-          command: php artisan migrate
+          command: composer dump-autoload
+
+      # run seeding
+      - run:
+          name: テストのためにデータベースのマイグレーション
+          working_directory: backend
+          command: php artisan migrate --force
 
       - run:
           name: php test

@@ -1,6 +1,11 @@
 <?php
 
 use App\User;
+use App\Job;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
+
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -18,13 +23,14 @@ use Faker\Generator as Faker;
 $factory->define(User::class, function (Faker $faker) {
 
     $gender = $faker->randomElement(["male", "female"]);
+    $job_id = \App\Job::inRandomOrder()->value('j_id');
 
     return [
         'lastname' => $faker->lastname,
         'firstname' => $faker->firstname,
         'gender' => $gender,
         'age' => $faker->randomNumber($nbDigits = 2),
-        'job_id' => $faker->randomElement([1, 2, 3, 4, 5, 6, 7]),
+        'job_id' => $job_id,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',

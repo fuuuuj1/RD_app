@@ -135,7 +135,7 @@ class RdController extends Controller
      */
     public function userpage()
     {
-        return view('RD.userpage');
+        return view('Rd.userpage');
     }
 
     /**
@@ -151,6 +151,6 @@ class RdController extends Controller
         ->orderBy('month', 'desc')
         ->paginate(9);
 
-        return view('RD.list', ['exposures' => $exposures]);
+        return view('Rd.list', ['exposures' => $exposures]);
     }
 }
