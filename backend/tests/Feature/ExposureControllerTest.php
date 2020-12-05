@@ -30,7 +30,7 @@ class ExposureControllerTest extends TestCase
     public function testAuthIndex()
     {
         // 初期データをテーブルに追加 job,positionデータなど
-        // $this->seed();
+        $this->seed();
 
         $auth_user = factory(User::class)->create();
 
@@ -44,7 +44,7 @@ class ExposureControllerTest extends TestCase
     public function testAuthList()
     {
         // 初期データをテーブルに追加 job,positionデータなど
-        // $this->seed();
+        $this->seed();
 
         $user = factory(User::class)->create();
 
