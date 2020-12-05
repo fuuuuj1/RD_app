@@ -53,7 +53,7 @@ class ExposureControllerTest extends TestCase
 
 
             $response->assertStatus(200)
-            ->assertViewIs('RD.list');
+            ->assertViewIs('Rd.list');
 
         $this->withoutExceptionHandling();
         }
