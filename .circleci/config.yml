@@ -71,7 +71,13 @@ jobs:
           paths:
             - vendor
 
-      - run: php -i
+      - run:
+          name: メモリの上限値を変更
+          command: sudo sh -c "echo \"memory_limit = 2048M\" > /usr/local/etc/php/conf.d/memory.ini"
+
+      - run:
+          name: メモリ上限の確認
+          command: php -i | grep memory_limit
 
       # seedingの準備
       - run:
