@@ -71,7 +71,7 @@ jobs:
           paths:
             - vendor
 
-      -run: php -i
+      - run: php -i
 
       # seedingの準備
       - run:
