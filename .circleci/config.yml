@@ -61,6 +61,14 @@ jobs:
           working_directory: backend
           command: npm run dev
 
+      - run:
+          name: メモリの上限値を変更
+          command: sudo sh -c "echo \"memory_limit = 2048M\" > /usr/local/etc/php/conf.d/memory.ini"
+
+      - run:
+          name: メモリ上限の確認
+          command: php -i | grep memory_limit
+
       - restore_cache:
           key: dbal-v1-{{ checksum "backend/composer.lock" }}
       - run:
@@ -70,14 +78,6 @@ jobs:
           key: dbal-v1-{{ checksum "backend/composer.lock" }}
           paths:
             - vendor
-
-      - run:
-          name: メモリの上限値を変更
-          command: sudo sh -c "echo \"memory_limit = 2048M\" > /usr/local/etc/php/conf.d/memory.ini"
-
-      - run:
-          name: メモリ上限の確認
-          command: php -i | grep memory_limit
 
       # seedingの準備
       - run:
