@@ -51,10 +51,9 @@ class ExposureControllerTest extends TestCase
         $response = $this->actingAs($user)
             ->get(route('RD.list'));
 
-
-            $response->assertStatus(200)
+        $response->assertStatus(200)
             ->assertViewIs('Rd.list');
 
         $this->withoutExceptionHandling();
-        }
+    }
 }

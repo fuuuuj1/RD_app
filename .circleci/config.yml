@@ -71,13 +71,15 @@ jobs:
           paths:
             - vendor
 
+      -run: php -i
+
       # seedingの準備
       - run:
           name: シーディングの準備
           working_directory: backend
           command: composer dump-autoload
 
-      # run seeding
+      # run migrate
       - run:
           name: テストのためにデータベースのマイグレーション
           working_directory: backend
