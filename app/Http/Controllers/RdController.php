@@ -13,10 +13,14 @@ use App\Http\Controllers\Controller;
 
 class RdController extends Controller
 {
+    //環境を判別するbool値を設定するプロパティを定義
+    protected $is_production;
 
+    //__construct内で環境を判別してプロパティに値をセット
     public function __construct()
     {
         $this->authorizeResource(Exposure::class, 'exposure');
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
     }
 
     /**
@@ -72,7 +76,7 @@ class RdController extends Controller
 
             // checkboxが選択されていれば再び記録画面へ
             if ($request->has('re_record')) {
-                return redirect()->route('RD.record')->with('success', '入力した' . $check_year . '年' . $check_month . '月の線量記録は正常に登録されました');
+                return redirect('/RD/create', 302, [], $this->is_production)->with('success', '入力した' . $check_year . '年' . $check_month . '月の線量記録は正常に登録されました');
             } else {
                 return view('Chart.chart');
             }
@@ -112,7 +116,7 @@ class RdController extends Controller
     {
         $exposure->fill($request->all())->save();
 
-        return redirect()->route('RD.list');
+        return redirect('/list', 302, [], $this->is_production);
     }
 
     /**
@@ -126,7 +130,7 @@ class RdController extends Controller
         $exposure->delete();
 
         // uriのRD.listが指定されたら listメソッドが動くのでページネーションなどの記述は不要
-        return redirect()->route('RD.list');
+        return redirect('/list', 302, [], $this->is_production);
     }
 
     /**

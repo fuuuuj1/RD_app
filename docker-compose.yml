@@ -5,6 +5,7 @@ services:
     image: nginx:latest
     ports:
       - "8989:80"
+      - "8900:443"
     tty: true
     stdin_open: true
     depends_on:
@@ -12,6 +13,7 @@ services:
     volumes:
       - ./Docker/web/default.conf:/etc/nginx/conf.d/default.conf
       - .:/work/RD_app/laravel
+      - ./certs:/etc/nginx/ssl
 
   # appコンテナはPHP Laravelも後からインストールするので、Dockerfileに設定を記載
   app:
