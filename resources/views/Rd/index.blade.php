@@ -77,7 +77,7 @@
                 <a href="{{route('login')}}">
                   <div class="thumb">
                     <img
-                        src="{{asset('assets/img/regs-resize.jpg')}}"
+                        src="{{asset('assets/img/regs-resize.jpg' ,$is_production)}}"
                         alt="ノート画像"/>
                   </div>
 
@@ -91,7 +91,7 @@
               <li>
                 <a href="{{route('RD.record')}}">
                   <div class="thumb">
-                    <img src="{{asset('assets/img/edit-res.jpg')}}" alt="ボード画像" />
+                    <img src="{{asset('assets/img/edit-res.jpg' ,$is_production)}}" alt="ボード画像" />
                   </div>
 
                   <div class="text">
@@ -104,7 +104,7 @@
               <li>
                 <a href="{{route('Chart.index')}}">
                   <div class="thumb">
-                    <img  src="{{asset('assets/img/chart-res.jpg')}}" alt="チャート画像" />
+                    <img  src="{{asset('assets/img/chart-res.jpg' ,$is_production)}}" alt="チャート画像" />
                   </div>
 
                   <div class="text">
@@ -152,7 +152,7 @@
 
                 <!--Card image-->
                 <div class="view overlay">
-                  <img class="card-img-top" src="{{asset('assets/img/notlook-res.jpg')}}" alt="見ざる聞かざる聞かざるの骨の写真">
+                  <img class="card-img-top" src="{{asset('assets/img/notlook-res.jpg' ,$is_production)}}" alt="見ざる聞かざる聞かざるの骨の写真">
                 </div>
 
                 <!--Card content-->
@@ -173,7 +173,7 @@
 
                 <!--Card image-->
                 <div class="view overlay">
-                  <img class="card-img-top" src="{{asset('assets/img/ctimage-pc.jpg')}}" alt="CTを見ているDrの画像">
+                  <img class="card-img-top" src="{{asset('assets/img/ctimage-pc.jpg' ,$is_production)}}" alt="CTを見ているDrの画像">
                 </div>
 
                 <!--Card content-->
@@ -194,7 +194,7 @@
 
                 <!--Card image-->
                 <div class="view overlay">
-                  <img class="card-img-top" src="{{asset('assets/img/medical-team_res.jpg')}}" alt="医療チームの姿の画像">
+                  <img class="card-img-top" src="{{asset('assets/img/medical-team_res.jpg' ,$is_production)}}" alt="医療チームの姿の画像">
                 </div>
 
                 <!--Card content-->

@@ -12,14 +12,14 @@
   <!-- Bootstrap core CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     {{-- stylesheetのソースを指定 同一階層のassetsディレクトリに格納 --}}
-    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/Application-Form.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/Article-List.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/dh-card-image-left-dark.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/Login-Form-Clean.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/Navigation-Clean.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/Pretty-Registration-Form.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/Application-Form.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/Article-List.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/dh-card-image-left-dark.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/Login-Form-Clean.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/Navigation-Clean.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/Pretty-Registration-Form.css' ,$is_production)}}">
+    <link rel="stylesheet" href="{{asset('assets/css/styles.css' ,$is_production)}}">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
 </head>

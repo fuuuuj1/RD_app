@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Routing\UrlGenerator;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +24,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(UrlGenerator $url)
     {
+        $url->forceScheme('https');
         Schema::defaultStringLength(191);
+        $is_production = env('APP_ENV') === 'production' ? true : false;
+        View::share('is_production',$is_production);
     }
 }
