@@ -32,10 +32,10 @@
         <ul class="list-unstyled footer-link">
         @guest
           <li class="footer-login">
-            <a href="{{route('login')}}">ログイン</a>
+            <a href="{{url('/login', null ,$is_production)}}">ログイン</a>
           </li>
           <li>
-            <a href=href="{{route('register')}}">ユーザー登録</a>
+            <a href="{{url('/register', null ,$is_production)}}">ユーザー登録</a>
           </li>
         @endguest
 
@@ -44,7 +44,7 @@
                 @csrf
                         <li class="footer-logout">
                                 <button class="nav-link" type="submit" form="logout-button"
-                                href="{{route('logout')}}" style="boder:none;background-color:transparent;cursor:pointer;">ログアウト
+                                href="{{url('/logout', null ,$is_production)}}" style="boder:none;background-color:transparent;cursor:pointer;">ログアウト
                         </li>
             </form>
         @endauth
@@ -68,13 +68,13 @@
 
         <ul class="list-unstyled footer-link">
           <li>
-            <a href="{{route('RD.record')}}">線量の記録</a>
+            <a href="{{url('/RD/create', null ,$is_production)}}">線量の記録</a>
           </li>
           <li>
-            <a href="{{route('RD.list')}}">記録の編集</a>
+            <a href="{{url('/list', null ,$is_production)}}">記録の編集</a>
           </li>
           <li>
-            <a href="{{route('Chart.index')}}">グラフ表示</a>
+            <a href="{{url('/chart', null ,$is_production)}}">グラフ表示</a>
           </li>
         </ul>
 
@@ -107,7 +107,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> RadiationDosimeter.com</a>
+    <a href="#header">radiationdosimeter.tech</a>
   </div>
   <!-- Copyright -->
 

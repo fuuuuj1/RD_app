@@ -5,7 +5,7 @@
         <div class="container">
 
             <strong id="header-logo">
-            <a class="navbar-brand" href="{{route('RD.index')}}">Radiation Dosimeter</a>
+            <a class="navbar-brand" href="{{ url('/', null ,$is_production)}}">Radiation Dosimeter</a>
             </strong>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -20,7 +20,7 @@
 
                 @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('register')}}">ユーザー登録</a>
+                            <a class="nav-link" href="{{url('/register', null ,$is_production)}}">ユーザー登録</a>
                         </li>
 
                         <li class="nav-item nav-center">
@@ -34,15 +34,15 @@
 
                 @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('Chart.index')}}">グラフ表示</a>
+                            <a class="nav-link" href="{{url('/chart', null ,$is_production)}}">グラフ表示</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('RD.record')}}">線量の記録</a>
+                            <a class="nav-link" href="{{url('/RD/create', null ,$is_production)}}">線量の記録</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('RD.list')}}">線量の編集</a>
+                            <a class="nav-link" href="{{url('/list', null ,$is_production)}}">線量の編集</a>
                         </li>
 
                         <li class="nav-item">
@@ -57,7 +57,7 @@
 
                 @guest
                     <li class="nav-item nav-login">
-                        <a class="nav-link" href="{{route('login')}}">ログイン</a>
+                        <a class="nav-link" href="{{url('/login', null ,$is_production)}}">ログイン</a>
                     </li>
                 @endguest
 

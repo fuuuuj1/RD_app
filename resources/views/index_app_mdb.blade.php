@@ -15,10 +15,10 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{asset('assets/css/new-visual.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/new-visual.css' ,$is_production)}}">
   {{-- 初回訪問時のモーダル展開 --}}
-  <link rel="stylesheet" href="{{asset('assets/css/toppage-modal.css')}}">
-  <link rel="stylesheet" href="{{asset('assets/css/first-view-modal.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/toppage-modal.css' ,$is_production)}}">
+  <link rel="stylesheet" href="{{asset('assets/css/first-view-modal.css' ,$is_production)}}">
 
 </head>
 
@@ -71,7 +71,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
   {{-- モーダル展開のためのファイル --}}
-  <script src="{{asset('assets/js/jquery-modalLayerBoard.js')}}"></script>
+  <script src="{{asset('assets/js/jquery-modalLayerBoard.js' ,$is_production)}}"></script>
 
   {{-- モーダル展開をコントロールするための記述 --}}
   <script>
