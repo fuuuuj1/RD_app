@@ -54,7 +54,8 @@
                 <div class="modal-guest_notice">
                 <p style="font-weight: bold">採用担当者様はこちらのボタンからゲストログインをお願いします</p>
                 <br>
-                <a class="mdl_btn_close square_btn" href="#">ゲストログイン</a>
+
+                <a class="mdl_btn_close square_btn" href="{{url('/login/guest', null ,$is_production)}}">ゲストログイン</a>
                 </div>
             @endguest
 

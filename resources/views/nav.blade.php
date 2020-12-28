@@ -60,7 +60,7 @@
                         <a class="nav-link" href="{{url('/login', null ,$is_production)}}">ログイン</a>
                     </li>
                     <li class="nav-item nav-login">
-                        <a class="nav-link" href="{{url('/login', null ,$is_production)}}">ゲスト</a>
+                        <a class="nav-link" href="{{url('/login/guest', null ,$is_production)}}">ゲスト</a>
                     </li>
                 @endguest
 

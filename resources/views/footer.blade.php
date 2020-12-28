@@ -35,7 +35,7 @@
             <a href="{{url('/login', null ,$is_production)}}">ログイン</a>
           </li>
           <li class="footer-login">
-            <a href="{{url('/login', null ,$is_production)}}">ゲストログイン</a>
+            <a href="{{url('/login/guest', null ,$is_production)}}">ゲストログイン</a>
           </li>
           <li>
             <a href="{{url('/register', null ,$is_production)}}">ユーザー登録</a>
