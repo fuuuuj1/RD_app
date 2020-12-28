@@ -20,7 +20,7 @@ class ExposuresTableSeeder extends Seeder
         // 登録パラメータの設定
         $faker = Faker::create('ja_JP');
 
-        $position_id = \App\Position::where('p_id', '3')->value('j_id');
+        $position_id = DB::table('positions')->where('position_name', '頸部 + 胸部')->value('p_id');
         $user_id = 99;
         $comments = array('レントゲン勤務が多かった', 'CT業務中心', 'OPE室勤務中心', 'Angio業務多数', '透視業務多数');
 

@@ -16,7 +16,7 @@ class GuestUserDataSeeder extends Seeder
      */
     public function run()
     {
-        $job_id = \App\Job::where('j_id', '1')->value('j_id');
+        $job_id = DB::table('jobs')->where('job_name', '診療放射線技師')->value('j_id');
         $guest_user_value = [
         'id' => '99',
         'lastname' => 'ゲスト',
