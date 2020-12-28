@@ -42,3 +42,6 @@ Route::patch('list/{exposure}', 'RdController@update')
 Route::get('chart', 'ChartController@index')
 ->name('Chart.index')
 ->middleware('auth');
+
+// ゲストログイン
+Route::get('/login/guest', 'Auth\LoginController@guestLogin');

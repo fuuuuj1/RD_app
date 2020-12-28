@@ -51,6 +51,12 @@
                     </div>
                 </div>
 
+                <div class="form-row guest-login">
+                    <div class="col">
+                    <a class="forgot" href="{{url('/login/guest', null ,$is_production)}}" style="color: #8f8f8f;">採用担当者様はこちらからログインをお願いします</a>
+                    </div>
+                </div>
+
                 {{-- 次回からのログインを自動にする typeをhiddenにすることで隠している --}}
                 <input type="hidden" name="remember" id="remember" value="on">
 

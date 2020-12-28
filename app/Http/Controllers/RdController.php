@@ -153,7 +153,7 @@ class RdController extends Controller
         $exposures = Exposure::where('user_id', $id)
         ->orderBy('year', 'desc')
         ->orderBy('month', 'desc')
-        ->paginate(9);
+        ->paginate(12);
 
         return view('Rd.list', ['exposures' => $exposures]);
     }
