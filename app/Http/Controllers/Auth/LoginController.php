@@ -36,4 +36,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function guestLogin()
+    {
+        $email = 'guest@test.jp';
+        $password = 'testtest';
+
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // 認証に成功した
+            return redirect('/');
+        }
+        return redirect('/');
+    }
 }

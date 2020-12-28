@@ -100,8 +100,8 @@
                             const plus_labels = labels.map(plusMonth);
 
                             // グラフの最後に線量限度のbarを表示するために配列に値の追加をする
-                            dose_body.push('20');
-                            dose_neck.push('10');
+                            dose_body.push('50');
+                            dose_neck.push('20');
                             plus_labels.push('線量限度');
 
                             // グラフのカラーを定義
@@ -141,8 +141,8 @@
                                         yAxes: [{
                                             ticks: {
                                                 min:0,
-                                                max:20,
-                                                stepSize:2,
+                                                max:50,
+                                                stepSize:5,
                                                 // 縦軸の数値にmSvを表示させる
                                                 callback: function(value, index, values) {
                                                     return value + 'mSv ';

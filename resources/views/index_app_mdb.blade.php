@@ -48,7 +48,18 @@
                 <p>医療被ばく・・・医療施設において検査や治療のためにする被ばく</p>
                 <br>
                 <a class="mdl_btn_close square_btn" href="#">閉じる</a>
+
+            @guest
+                <hr>
+                <div class="modal-guest_notice">
+                <p style="font-weight: bold">採用担当者様はこちらのボタンからゲストログインをお願いします</p>
+                <br>
+                <a class="mdl_btn_close square_btn" href="#">ゲストログイン</a>
+                </div>
+            @endguest
+
             </div>
+
 
         </div>
 
